@@ -370,14 +370,6 @@ class PdfBoxPageOperationsEngine : PageOperationsEngine {
         }
     }
 
-    private fun mapToPdfError(cause: Throwable, defaultMessage: String): PdfOperationResult.Error {
-        val userMessage = when (cause) {
-            is InvalidPasswordException -> "Невірний пароль для захищеного PDF-документа"
-            is IllegalArgumentException -> cause.localizedMessage ?: defaultMessage
-            is IndexOutOfBoundsException -> cause.localizedMessage ?: defaultMessage
-            is FileNotFoundException -> cause.localizedMessage ?: defaultMessage
-            else -> "$defaultMessage: ${cause.localizedMessage ?: cause.javaClass.simpleName}"
-        }
-        return PdfOperationResult.Error(cause = cause, userMessage = userMessage)
-    }
+    private fun mapToPdfError(cause: Throwable, defaultMessage: String): PdfOperationResult.Error =
+        PdfIo.mapToPdfError(cause, defaultMessage) // єдине відображення помилок (OOM, права, пароль)
 }

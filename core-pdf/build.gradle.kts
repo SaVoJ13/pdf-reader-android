@@ -25,6 +25,22 @@ android {
 
     testOptions {
         unitTests.isReturnDefaultValues = true
+        unitTests.all { t ->
+            // Важкі тести великих/пошкоджених файлів (пакет `large`) запускаються лише явно:
+            //   ./gradlew --max-workers=1 :core-pdf:testDebugUnitTest -PlargeFiles --tests "*large.ClassName"
+            // Купа: -PtestHeap=512m (за замовчуванням 512m). Звичайний :core-pdf:test їх не чіпає.
+            if (project.hasProperty("largeFiles")) {
+                t.maxHeapSize = (project.findProperty("testHeap") as String?) ?: "512m"
+                t.testLogging {
+                    events("passed", "failed", "skipped")
+                    showStandardStreams = true
+                    exceptionFormat = org.gradle.api.tasks.testing.logging.TestExceptionFormat.FULL
+                }
+                t.filter.isFailOnNoMatchingTests = false
+            } else {
+                t.filter.excludeTestsMatching("*.large.*")
+            }
+        }
     }
 }
 

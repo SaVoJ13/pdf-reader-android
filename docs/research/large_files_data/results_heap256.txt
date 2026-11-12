@@ -1,0 +1,38 @@
+=== LargeOpenTest.big60 @256m
+[RESULT] big60 | open+metadata | 315 ms | peak 135 MB (base 10, retained 10) | out -1 B | OK | (pages=30, 30)
+[RESULT] big60 | checkEditability | 272 ms | peak 132 MB (base 10, retained 11) | out -1 B | OK | DocumentEditability(isEncrypted=false, canMarkup=true, canFillForms=true)
+[RESULT] big60 | extractFormFields | 191 ms | peak 133 MB (base 11, retained 11) | out -1 B | OK | []
+=== LargeOpenTest.big100 @256m
+[RESULT] big100 | open+metadata | 381 ms | peak 215 MB (base 10, retained 10) | out -1 B | OK | (pages=50, 50)
+[RESULT] big100 | checkEditability | 374 ms | peak 213 MB (base 10, retained 11) | out -1 B | OK | DocumentEditability(isEncrypted=false, canMarkup=true, canFillForms=true)
+[RESULT] big100 | extractFormFields | 336 ms | peak 214 MB (base 11, retained 11) | out -1 B | OK | []
+=== LargeOpenTest.encBig @256m
+[RESULT] enc_big60_aes256 | open+metadata | 676 ms | peak 225 MB (base 10, retained 10) | out -1 B | OK | (pages=30, 30)
+[RESULT] enc_big60_aes256 | checkEditability | 574 ms | peak 192 MB (base 11, retained 11) | out -1 B | OK | DocumentEditability(isEncrypted=true, canMarkup=true, canFillForms=true)
+[RESULT] enc_big60_aes256 | extractFormFields | 373 ms | peak 239 MB (base 11, retained 11) | out -1 B | OK | []
+=== LargeMarkupTest.big60 @256m
+[RESULT] big60 | applyEdits[first p1] | 720 ms | peak 142 MB (base 10, retained 11) | out 62933588 B | OK | pages=30
+[RESULT] big60 | applyEdits[middle p16] | 402 ms | peak 135 MB (base 11, retained 11) | out 62933588 B | OK | pages=30
+[RESULT] big60 | applyEdits[last p30] | 310 ms | peak 135 MB (base 11, retained 11) | out 62933588 B | OK | pages=30
+=== LargeMarkupTest.big100 @256m
+[RESULT] big100 | applyEdits[first p1] | 938 ms | peak 219 MB (base 10, retained 11) | out 104885569 B | OK | pages=50
+[RESULT] big100 | applyEdits[middle p26] | 588 ms | peak 216 MB (base 11, retained 11) | out 104885569 B | OK | pages=50
+[RESULT] big100 | applyEdits[last p50] | 494 ms | peak 216 MB (base 11, retained 11) | out 104885569 B | OK | pages=50
+=== LargeMarkupTest.pages2000 @256m
+[RESULT] pages2000 | applyEdits[first p1] | 659 ms | peak 33 MB (base 10, retained 11) | out 973018 B | OK | pages=2000
+[RESULT] pages2000 | applyEdits[middle p1001] | 272 ms | peak 30 MB (base 11, retained 11) | out 973018 B | OK | pages=2000
+[RESULT] pages2000 | applyEdits[last p2000] | 168 ms | peak 30 MB (base 11, retained 11) | out 973018 B | OK | pages=2000
+=== LargePageOpsTest.split_big100_all @256m
+[RESULT] split_big100_all50 | extractPages[50] | 903 ms | peak 222 MB (base 10, retained 11) | out 104883731 B | OK | pages=50
+=== LargePageOpsTest.merge_big60_big60 @256m
+[RESULT] merge_big60+big60(120MB) | mergePdfs | 1219 ms | peak 255 MB (base 10, retained 10) | out 125861768 B | OK | pages=60
+=== LargeEncryptedTest.big60_aes256_copy @256m
+[RESULT] enc_big60_aes256 | applyEdits->copy | 1140 ms | peak 252 MB (base 10, retained 11) | out 62934440 B | OK | pages=30
+[RESULT] enc_big60_aes256 | extractPages[5] | 449 ms | peak 239 MB (base 11, retained 11) | out 10488651 B | OK | pages=5
+=== LargeAlternativeLoadTest.big100 @256m
+[RESULT] big100 | ALT stream: load(InputStream)+save | 560 ms | peak 217 MB (base 10, retained 10) | out -1 B | OK | 50
+[RESULT] big100 | ALT file+tempfile: load(File, tempFileOnly)+save | 1024 ms | peak 47 MB (base 10, retained 10) | out -1 B | OK | 50
+[RESULT] big100 | ALT file+mixed(32MB): load(File, mixed)+save | 767 ms | peak 91 MB (base 10, retained 10) | out -1 B | OK | 50
+=== LargeAlternativeLoadTest.scan200 @256m
+[RESULT] scan200_324MB | ALT file+tempfile: load(File, tempFileOnly)+save | 4031 ms | peak 106 MB (base 10, retained 10) | out -1 B | OK | 200
+[RESULT] scan200_324MB | ALT file+mixed(32MB): load(File, mixed)+save | 3147 ms | peak 93 MB (base 10, retained 10) | out -1 B | OK | 200

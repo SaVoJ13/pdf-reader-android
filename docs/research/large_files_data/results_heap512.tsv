@@ -1,0 +1,465 @@
+class	case	op	ms	peak_mb	base_mb	retained_mb	out_bytes	outcome	detail	max_heap_mb
+LargeAlternativeLoadTest	big100	ALT stream: load(InputStream)+save	586	218	10	10	-1	OK	50	512
+LargeAlternativeLoadTest	big100	ALT file+tempfile: load(File, tempFileOnly)+save	921	91	10	10	-1	OK	50	512
+LargeAlternativeLoadTest	big100	ALT file+mixed(32MB): load(File, mixed)+save	891	86	10	10	-1	OK	50	512
+LargeAlternativeLoadTest	scan200_324MB	ALT file+tempfile: load(File, tempFileOnly)+save	3951	123	10	10	-1	OK	200	512
+LargeAlternativeLoadTest	scan200_324MB	ALT file+mixed(32MB): load(File, mixed)+save	2789	148	10	10	-1	OK	200	512
+LargeCorruptTest	bad_pages_cycle	open+metadata (loader)	51	12	10	10	-1	OK	1	512
+LargeCorruptTest	bad_pages_cycle	checkEditability	123	14	10	10	-1	OK	DocumentEditability(isEncrypted=false, canMarkup=true, canFillForms=true)	512
+LargeCorruptTest	bad_pages_cycle	extractFormFields	12	11	10	10	-1	OK	[]	512
+LargeCorruptTest	bad_pages_cycle	applyEdits[first]	160	14	10	11	8	Error	msg='Помилка збереження розмітки: Possible recursion found when searching for page 1' cause=IllegalStateException at PDPageTree.get:297 < PDPageTree.get:321 < PDPageTree.get:321 < PDPageTree.get:256	512
+LargeCorruptTest	bad_pages_cycle	applyEdits[last]	15	13	11	11	8	Error	msg='Індекс сторінки 9 виходить за межі документа (0..0)' cause=IndexOutOfBoundsException at PdfBoxMarkupEngine$applyEdits$2.invokeSuspend:89	512
+LargeCorruptTest	bad_pages_cycle	fillFormFields	10	11	11	11	8	Error	msg='Документ не містить форми AcroForm для заповнення' cause=IllegalArgumentException at FormFiller.apply:151 < PdfBoxFormEngine$fillFormFields$2.invokeSuspend:124	512
+LargeCorruptTest	bad_pages_cycle	rotatePages[0]	9	11	11	11	8	Error	msg='Помилка повороту сторінок: Possible recursion found when searching for page 1' cause=IllegalStateException at PDPageTree.get:297 < PDPageTree.get:321 < PDPageTree.get:321 < PDPageTree.get:256	512
+LargeCorruptTest	bad_pages_cycle	deletePages[0]	10	12	11	11	8	Error	msg='Неможливо видалити всі сторінки. Документ має містити щонайменше 1 сторінку (всього: 1, до видалення' cause=IllegalArgumentException at PdfBoxPageOperationsEngine$deletePages$2.invokeSuspend:213	512
+LargeCorruptTest	bad_pages_cycle	extractPages[0]	96	15	11	11	8	Error	msg='Помилка вилучення сторінок із PDF: Possible recursion found when searching for page 1' cause=IllegalStateException at PDPageTree.get:297 < PDPageTree.get:321 < PDPageTree.get:321 < PDPageTree.get:256	512
+LargeCorruptTest	bad_pages_cycle	mergePdfs[bad+valid]	115	14	11	11	5966	OK	pages=10	512
+LargeCorruptTest	bad_not_pdf_text	open+metadata (loader)	2	11	11	11	-1	CRASH	IOException: Error: End-of-File, expected line at offset 1200 at BaseParser.readLine:1103 < COSParser.parseHeader:2655 < COSParser.parsePDFHeader:2626 < PDFParser.parse:215	512
+LargeCorruptTest	bad_not_pdf_text	checkEditability	2	11	11	11	-1	null		512
+LargeCorruptTest	bad_not_pdf_text	extractFormFields	48	13	11	11	-1	CRASH	IOException: Error: End-of-File, expected line at offset 1200 at BaseParser.readLine:1103 < COSParser.parseHeader:2655 < COSParser.parsePDFHeader:2626 < PDFParser.parse:215	512
+LargeCorruptTest	bad_not_pdf_text	applyEdits[first]	9	12	11	11	8	Error	msg='Помилка збереження розмітки: Error: End-of-File, expected line at offset 1200' cause=IOException at BaseParser.readLine:1103 < COSParser.parseHeader:2655 < COSParser.parsePDFHeader:2626 < PDFParser.parse:215	512
+LargeCorruptTest	bad_not_pdf_text	applyEdits[last]	13	12	11	11	8	Error	msg='Помилка збереження розмітки: Error: End-of-File, expected line at offset 1200' cause=IOException at BaseParser.readLine:1103 < COSParser.parseHeader:2655 < COSParser.parsePDFHeader:2626 < PDFParser.parse:215	512
+LargeCorruptTest	bad_not_pdf_text	fillFormFields	3	12	11	11	8	Error	msg='Помилка заповнення форми PDF: Error: End-of-File, expected line at offset 1200' cause=IOException at BaseParser.readLine:1103 < COSParser.parseHeader:2655 < COSParser.parsePDFHeader:2626 < PDFParser.parse:215	512
+LargeCorruptTest	bad_not_pdf_text	rotatePages[0]	5	12	11	11	8	Error	msg='Помилка повороту сторінок: Error: End-of-File, expected line at offset 1200' cause=IOException at BaseParser.readLine:1103 < COSParser.parseHeader:2655 < COSParser.parsePDFHeader:2626 < PDFParser.parse:215	512
+LargeCorruptTest	bad_not_pdf_text	deletePages[0]	5	12	11	11	8	Error	msg='Помилка видалення сторінок: Error: End-of-File, expected line at offset 1200' cause=IOException at BaseParser.readLine:1103 < COSParser.parseHeader:2655 < COSParser.parsePDFHeader:2626 < PDFParser.parse:215	512
+LargeCorruptTest	bad_not_pdf_text	extractPages[0]	8	12	11	11	8	Error	msg='Помилка вилучення сторінок із PDF: Error: End-of-File, expected line at offset 1200' cause=IOException at BaseParser.readLine:1103 < COSParser.parseHeader:2655 < COSParser.parsePDFHeader:2626 < PDFParser.parse:215	512
+LargeCorruptTest	bad_not_pdf_text	mergePdfs[bad+valid]	10	12	11	11	8	Error	msg='Помилка злиття PDF-файлів: Error: End-of-File, expected line at offset 1200' cause=IOException at BaseParser.readLine:1103 < COSParser.parseHeader:2655 < COSParser.parsePDFHeader:2626 < PDFParser.parse:215	512
+LargeCorruptTest	bad_mediabox_zero	open+metadata (loader)	9	12	11	11	-1	OK	10	512
+LargeCorruptTest	bad_mediabox_zero	checkEditability	7	12	11	11	-1	OK	DocumentEditability(isEncrypted=false, canMarkup=true, canFillForms=true)	512
+LargeCorruptTest	bad_mediabox_zero	extractFormFields	10	12	11	11	-1	OK	[]	512
+LargeCorruptTest	bad_mediabox_zero	applyEdits[first]	44	13	11	11	8	Error	msg='Об'єкт «t» повністю за межами сторінки 1' cause=IllegalArgumentException at PdfBoxMarkupEngine$applyEdits$2.invokeSuspend:99	512
+LargeCorruptTest	bad_mediabox_zero	applyEdits[last]	36	13	11	11	8	Error	msg='Об'єкт «t» повністю за межами сторінки 10' cause=IllegalArgumentException at PdfBoxMarkupEngine$applyEdits$2.invokeSuspend:99	512
+LargeCorruptTest	bad_mediabox_zero	fillFormFields	7	12	11	11	8	Error	msg='Документ не містить форми AcroForm для заповнення' cause=IllegalArgumentException at FormFiller.apply:151 < PdfBoxFormEngine$fillFormFields$2.invokeSuspend:124	512
+LargeCorruptTest	bad_mediabox_zero	rotatePages[0]	74	12	11	11	4518	OK	pages=10	512
+LargeCorruptTest	bad_mediabox_zero	deletePages[0]	39	12	11	11	4094	OK	pages=9	512
+LargeCorruptTest	bad_mediabox_zero	extractPages[0]	44	13	11	11	870	OK	pages=1	512
+LargeCorruptTest	bad_mediabox_zero	mergePdfs[bad+valid]	83	14	11	11	11479	OK	pages=20	512
+LargeCorruptTest	bad_count_0	open+metadata (loader)	6	12	11	11	-1	OK	0	512
+LargeCorruptTest	bad_count_0	checkEditability	5	12	11	11	-1	OK	DocumentEditability(isEncrypted=false, canMarkup=true, canFillForms=true)	512
+LargeCorruptTest	bad_count_0	extractFormFields	5	12	11	11	-1	OK	[]	512
+LargeCorruptTest	bad_count_0	applyEdits[first]	28	13	11	11	8	Error	msg='Індекс сторінки 0 виходить за межі документа (0..-1)' cause=IndexOutOfBoundsException at PdfBoxMarkupEngine$applyEdits$2.invokeSuspend:89	512
+LargeCorruptTest	bad_count_0	applyEdits[last]	13	13	11	11	8	Error	msg='Індекс сторінки 9 виходить за межі документа (0..-1)' cause=IndexOutOfBoundsException at PdfBoxMarkupEngine$applyEdits$2.invokeSuspend:89	512
+LargeCorruptTest	bad_count_0	fillFormFields	7	12	11	11	8	Error	msg='Документ не містить форми AcroForm для заповнення' cause=IllegalArgumentException at FormFiller.apply:151 < PdfBoxFormEngine$fillFormFields$2.invokeSuspend:124	512
+LargeCorruptTest	bad_count_0	rotatePages[0]	8	12	11	11	8	Error	msg='Індекс сторінки 0 виходить за межі [0, -1]' cause=IndexOutOfBoundsException at PdfBoxPageOperationsEngine$rotatePages$2.invokeSuspend:160	512
+LargeCorruptTest	bad_count_0	deletePages[0]	8	12	11	11	8	Error	msg='Індекс сторінки 0 виходить за межі [0, -1]' cause=IndexOutOfBoundsException at PdfBoxPageOperationsEngine$deletePages$2.invokeSuspend:206	512
+LargeCorruptTest	bad_count_0	extractPages[0]	5	12	11	11	8	Error	msg='Індекс сторінки 0 виходить за межі [0, -1]' cause=IndexOutOfBoundsException at PdfBoxPageOperationsEngine$extractPages$1.invokeSuspend:106 < PdfBoxPageOperationsEngine$extractPages$1.invoke:-1 < PdfBoxPageOperationsEngine$extractPages$1.invoke:-1	512
+LargeCorruptTest	bad_count_0	mergePdfs[bad+valid]	55	14	11	11	11559	OK	pages=20	512
+LargeCorruptTest	bad_empty0	open+metadata (loader)	1	11	11	11	-1	CRASH	IOException: Error: End-of-File, expected line at offset 0 at BaseParser.readLine:1103 < COSParser.parseHeader:2643 < COSParser.parsePDFHeader:2626 < PDFParser.parse:215	512
+LargeCorruptTest	bad_empty0	checkEditability	2	12	11	11	-1	null		512
+LargeCorruptTest	bad_empty0	extractFormFields	2	12	11	11	-1	CRASH	IOException: Error: End-of-File, expected line at offset 0 at BaseParser.readLine:1103 < COSParser.parseHeader:2643 < COSParser.parsePDFHeader:2626 < PDFParser.parse:215	512
+LargeCorruptTest	bad_empty0	applyEdits[first]	8	12	11	11	8	Error	msg='Помилка збереження розмітки: Error: End-of-File, expected line at offset 0' cause=IOException at BaseParser.readLine:1103 < COSParser.parseHeader:2643 < COSParser.parsePDFHeader:2626 < PDFParser.parse:215	512
+LargeCorruptTest	bad_empty0	applyEdits[last]	8	12	11	11	8	Error	msg='Помилка збереження розмітки: Error: End-of-File, expected line at offset 0' cause=IOException at BaseParser.readLine:1103 < COSParser.parseHeader:2643 < COSParser.parsePDFHeader:2626 < PDFParser.parse:215	512
+LargeCorruptTest	bad_empty0	fillFormFields	4	12	11	11	8	Error	msg='Помилка заповнення форми PDF: Error: End-of-File, expected line at offset 0' cause=IOException at BaseParser.readLine:1103 < COSParser.parseHeader:2643 < COSParser.parsePDFHeader:2626 < PDFParser.parse:215	512
+LargeCorruptTest	bad_empty0	rotatePages[0]	4	12	11	11	8	Error	msg='Помилка повороту сторінок: Error: End-of-File, expected line at offset 0' cause=IOException at BaseParser.readLine:1103 < COSParser.parseHeader:2643 < COSParser.parsePDFHeader:2626 < PDFParser.parse:215	512
+LargeCorruptTest	bad_empty0	deletePages[0]	4	12	11	11	8	Error	msg='Помилка видалення сторінок: Error: End-of-File, expected line at offset 0' cause=IOException at BaseParser.readLine:1103 < COSParser.parseHeader:2643 < COSParser.parsePDFHeader:2626 < PDFParser.parse:215	512
+LargeCorruptTest	bad_empty0	extractPages[0]	12	12	11	11	8	Error	msg='Помилка вилучення сторінок із PDF: Error: End-of-File, expected line at offset 0' cause=IOException at BaseParser.readLine:1103 < COSParser.parseHeader:2643 < COSParser.parsePDFHeader:2626 < PDFParser.parse:215	512
+LargeCorruptTest	bad_empty0	mergePdfs[bad+valid]	5	12	11	11	8	Error	msg='Помилка злиття PDF-файлів: Error: End-of-File, expected line at offset 0' cause=IOException at BaseParser.readLine:1103 < COSParser.parseHeader:2643 < COSParser.parsePDFHeader:2626 < PDFParser.parse:215	512
+LargeCorruptTest	bad_bad_xref_offsets	open+metadata (loader)	10	12	11	11	-1	OK	10	512
+LargeCorruptTest	bad_bad_xref_offsets	checkEditability	11	12	11	11	-1	OK	DocumentEditability(isEncrypted=false, canMarkup=true, canFillForms=true)	512
+LargeCorruptTest	bad_bad_xref_offsets	extractFormFields	6	12	11	11	-1	OK	[]	512
+LargeCorruptTest	bad_bad_xref_offsets	applyEdits[first]	55	14	11	11	8818	OK	pages=10	512
+LargeCorruptTest	bad_bad_xref_offsets	applyEdits[last]	48	14	11	11	8818	OK	pages=10	512
+LargeCorruptTest	bad_bad_xref_offsets	fillFormFields	4	12	11	11	8	Error	msg='Документ не містить форми AcroForm для заповнення' cause=IllegalArgumentException at FormFiller.apply:151 < PdfBoxFormEngine$fillFormFields$2.invokeSuspend:124	512
+LargeCorruptTest	bad_bad_xref_offsets	rotatePages[0]	58	12	11	11	4558	OK	pages=10	512
+LargeCorruptTest	bad_bad_xref_offsets	deletePages[0]	40	12	11	11	4130	OK	pages=9	512
+LargeCorruptTest	bad_bad_xref_offsets	extractPages[0]	33	12	11	11	878	OK	pages=1	512
+LargeCorruptTest	bad_bad_xref_offsets	mergePdfs[bad+valid]	51	14	11	11	11559	OK	pages=20	512
+LargeCorruptTest	bad_bad_startxref	open+metadata (loader)	8	12	11	11	-1	OK	10	512
+LargeCorruptTest	bad_bad_startxref	checkEditability	8	12	11	11	-1	OK	DocumentEditability(isEncrypted=false, canMarkup=true, canFillForms=true)	512
+LargeCorruptTest	bad_bad_startxref	extractFormFields	4	12	11	11	-1	OK	[]	512
+LargeCorruptTest	bad_bad_startxref	applyEdits[first]	30	14	11	11	8818	OK	pages=10	512
+LargeCorruptTest	bad_bad_startxref	applyEdits[last]	24	14	11	11	8818	OK	pages=10	512
+LargeCorruptTest	bad_bad_startxref	fillFormFields	5	12	11	11	8	Error	msg='Документ не містить форми AcroForm для заповнення' cause=IllegalArgumentException at FormFiller.apply:151 < PdfBoxFormEngine$fillFormFields$2.invokeSuspend:124	512
+LargeCorruptTest	bad_bad_startxref	rotatePages[0]	53	12	11	11	4558	OK	pages=10	512
+LargeCorruptTest	bad_bad_startxref	deletePages[0]	126	12	11	11	4130	OK	pages=9	512
+LargeCorruptTest	bad_bad_startxref	extractPages[0]	75	12	11	11	878	OK	pages=1	512
+LargeCorruptTest	bad_bad_startxref	mergePdfs[bad+valid]	63	14	11	11	11559	OK	pages=20	512
+LargeCorruptTest	bad_truncated50	open+metadata (loader)	5	12	11	11	-1	OK	6	512
+LargeCorruptTest	bad_truncated50	checkEditability	6	12	11	11	-1	OK	DocumentEditability(isEncrypted=false, canMarkup=true, canFillForms=true)	512
+LargeCorruptTest	bad_truncated50	extractFormFields	4	12	11	11	-1	OK	[]	512
+LargeCorruptTest	bad_truncated50	applyEdits[first]	31	13	11	11	6895	OK	pages=6	512
+LargeCorruptTest	bad_truncated50	applyEdits[last]	17	13	11	11	8	Error	msg='Індекс сторінки 9 виходить за межі документа (0..5)' cause=IndexOutOfBoundsException at PdfBoxMarkupEngine$applyEdits$2.invokeSuspend:89	512
+LargeCorruptTest	bad_truncated50	fillFormFields	5	12	11	11	8	Error	msg='Документ не містить форми AcroForm для заповнення' cause=IllegalArgumentException at FormFiller.apply:151 < PdfBoxFormEngine$fillFormFields$2.invokeSuspend:124	512
+LargeCorruptTest	bad_truncated50	rotatePages[0]	61	12	11	11	2635	OK	pages=6	512
+LargeCorruptTest	bad_truncated50	deletePages[0]	30	12	11	11	2204	OK	pages=5	512
+LargeCorruptTest	bad_truncated50	extractPages[0]	29	12	11	11	878	OK	pages=1	512
+LargeCorruptTest	bad_truncated50	mergePdfs[bad+valid]	61	13	11	11	9097	OK	pages=16	512
+LargeCorruptTest	bad_no_trailer	open+metadata (loader)	3	12	11	11	-1	OK	1	512
+LargeCorruptTest	bad_no_trailer	checkEditability	5	12	11	11	-1	OK	DocumentEditability(isEncrypted=false, canMarkup=true, canFillForms=true)	512
+LargeCorruptTest	bad_no_trailer	extractFormFields	3	12	11	11	-1	OK	[]	512
+LargeCorruptTest	bad_no_trailer	applyEdits[first]	21	13	11	11	4685	OK	pages=1	512
+LargeCorruptTest	bad_no_trailer	applyEdits[last]	11	13	11	11	8	Error	msg='Індекс сторінки 9 виходить за межі документа (0..0)' cause=IndexOutOfBoundsException at PdfBoxMarkupEngine$applyEdits$2.invokeSuspend:89	512
+LargeCorruptTest	bad_no_trailer	fillFormFields	8	12	11	11	8	Error	msg='Документ не містить форми AcroForm для заповнення' cause=IllegalArgumentException at FormFiller.apply:151 < PdfBoxFormEngine$fillFormFields$2.invokeSuspend:124	512
+LargeCorruptTest	bad_no_trailer	rotatePages[0]	11	12	11	11	422	OK	pages=1	512
+LargeCorruptTest	bad_no_trailer	deletePages[0]	6	12	11	11	8	Error	msg='Неможливо видалити всі сторінки. Документ має містити щонайменше 1 сторінку (всього: 1, до видалення' cause=IllegalArgumentException at PdfBoxPageOperationsEngine$deletePages$2.invokeSuspend:213	512
+LargeCorruptTest	bad_no_trailer	extractPages[0]	22	12	11	11	590	OK	pages=1	512
+LargeCorruptTest	bad_no_trailer	mergePdfs[bad+valid]	71	13	11	11	6174	OK	pages=11	512
+LargeCorruptTest	bad_deep_array_100000	open+metadata (loader)	24	12	11	11	-1	CRASH	StackOverflowError:  at RandomAccessSource.getPosition:61 < BaseParser.parseCOSArray:629 < BaseParser.parseDirObject:869 < BaseParser.parseCOSArray:637	512
+LargeCorruptTest	bad_deep_array_100000	checkEditability	11	12	11	11	-1	null		512
+LargeCorruptTest	bad_deep_array_100000	extractFormFields	9	12	11	11	-1	CRASH	StackOverflowError:  at LargeCorruptTest$corrupt$4$1.invokeSuspend:66	512
+LargeCorruptTest	bad_deep_array_100000	applyEdits[first]	43	13	11	11	8	Error	msg='Помилка збереження розмітки: StackOverflowError' cause=StackOverflowError at BaseParser.parseDirObject:856 < BaseParser.parseCOSArray:637 < BaseParser.parseDirObject:869 < BaseParser.parseCOSArray:637	512
+LargeCorruptTest	bad_deep_array_100000	applyEdits[last]	19	13	11	11	8	Error	msg='Помилка збереження розмітки: StackOverflowError' cause=StackOverflowError at BaseParser.parseDirObject:856 < BaseParser.parseCOSArray:637 < BaseParser.parseDirObject:869 < BaseParser.parseCOSArray:637	512
+LargeCorruptTest	bad_deep_array_100000	fillFormFields	15	12	11	11	8	Error	msg='Помилка заповнення форми PDF: StackOverflowError' cause=StackOverflowError at BaseParser.parseCOSArray:633 < BaseParser.parseDirObject:869 < BaseParser.parseCOSArray:637 < BaseParser.parseDirObject:869	512
+LargeCorruptTest	bad_deep_array_100000	rotatePages[0]	16	12	11	11	8	Error	msg='Помилка повороту сторінок: StackOverflowError' cause=StackOverflowError at BaseParser.parseCOSArray:633 < BaseParser.parseDirObject:869 < BaseParser.parseCOSArray:637 < BaseParser.parseDirObject:869	512
+LargeCorruptTest	bad_deep_array_100000	deletePages[0]	16	12	11	11	8	Error	msg='Помилка видалення сторінок: StackOverflowError' cause=StackOverflowError at BaseParser.parseCOSArray:633 < BaseParser.parseDirObject:869 < BaseParser.parseCOSArray:637 < BaseParser.parseDirObject:869	512
+LargeCorruptTest	bad_deep_array_100000	extractPages[0]	23	12	11	11	8	Error	msg='Помилка вилучення сторінок із PDF: StackOverflowError' cause=StackOverflowError at BaseParser.parseDirObject:856 < BaseParser.parseCOSArray:637 < BaseParser.parseDirObject:869 < BaseParser.parseCOSArray:637	512
+LargeCorruptTest	bad_deep_array_100000	mergePdfs[bad+valid]	16	12	11	11	8	Error	msg='Помилка злиття PDF-файлів: StackOverflowError' cause=StackOverflowError at BaseParser.parseCOSArray:633 < BaseParser.parseDirObject:869 < BaseParser.parseCOSArray:637 < BaseParser.parseDirObject:869	512
+LargeCorruptTest	bad_mediabox_1e9	open+metadata (loader)	2	12	11	11	-1	OK	10	512
+LargeCorruptTest	bad_mediabox_1e9	checkEditability	4	12	11	11	-1	OK	DocumentEditability(isEncrypted=false, canMarkup=true, canFillForms=true)	512
+LargeCorruptTest	bad_mediabox_1e9	extractFormFields	4	12	11	11	-1	OK	[]	512
+LargeCorruptTest	bad_mediabox_1e9	applyEdits[first]	28	14	11	11	8947	OK	pages=10	512
+LargeCorruptTest	bad_mediabox_1e9	applyEdits[last]	19	14	11	11	8947	OK	pages=10	512
+LargeCorruptTest	bad_mediabox_1e9	fillFormFields	4	12	11	11	8	Error	msg='Документ не містить форми AcroForm для заповнення' cause=IllegalArgumentException at FormFiller.apply:151 < PdfBoxFormEngine$fillFormFields$2.invokeSuspend:124	512
+LargeCorruptTest	bad_mediabox_1e9	rotatePages[0]	82	12	11	11	4698	OK	pages=10	512
+LargeCorruptTest	bad_mediabox_1e9	deletePages[0]	50	12	11	11	4256	OK	pages=9	512
+LargeCorruptTest	bad_mediabox_1e9	extractPages[0]	20	12	11	11	898	OK	pages=1	512
+LargeCorruptTest	bad_mediabox_1e9	mergePdfs[bad+valid]	159	14	11	11	11759	OK	pages=20	512
+LargeCorruptTest	bad_not_pdf_random	open+metadata (loader)	15	13	11	11	-1	CRASH	IOException: Error: Header doesn't contain versioninfo at PDFParser.parse:217 < PDDocument.load:1219 < PDDocument.load:1119 < PdfIo.loadDocument:35	512
+LargeCorruptTest	bad_not_pdf_random	checkEditability	4	13	11	11	-1	null		512
+LargeCorruptTest	bad_not_pdf_random	extractFormFields	6	13	11	11	-1	CRASH	IOException: Error: Header doesn't contain versioninfo at PDFParser.parse:217 < PDDocument.load:1219 < PDDocument.load:1119 < PdfIo.loadDocument:35	512
+LargeCorruptTest	bad_not_pdf_random	applyEdits[first]	10	13	11	11	8	Error	msg='Помилка збереження розмітки: Error: Header doesn't contain versioninfo' cause=IOException at PDFParser.parse:217 < PDDocument.load:1219 < PDDocument.load:1119 < PdfIo.loadDocument:35	512
+LargeCorruptTest	bad_not_pdf_random	applyEdits[last]	9	13	11	11	8	Error	msg='Помилка збереження розмітки: Error: Header doesn't contain versioninfo' cause=IOException at PDFParser.parse:217 < PDDocument.load:1219 < PDDocument.load:1119 < PdfIo.loadDocument:35	512
+LargeCorruptTest	bad_not_pdf_random	fillFormFields	5	13	11	11	8	Error	msg='Помилка заповнення форми PDF: Error: Header doesn't contain versioninfo' cause=IOException at PDFParser.parse:217 < PDDocument.load:1219 < PDDocument.load:1119 < PdfIo.loadDocument:35	512
+LargeCorruptTest	bad_not_pdf_random	rotatePages[0]	7	13	11	11	8	Error	msg='Помилка повороту сторінок: Error: Header doesn't contain versioninfo' cause=IOException at PDFParser.parse:217 < PDDocument.load:1219 < PDDocument.load:1119 < PdfBoxPageOperationsEngine.loadDocument:345	512
+LargeCorruptTest	bad_not_pdf_random	deletePages[0]	4	13	11	11	8	Error	msg='Помилка видалення сторінок: Error: Header doesn't contain versioninfo' cause=IOException at PDFParser.parse:217 < PDDocument.load:1219 < PDDocument.load:1119 < PdfBoxPageOperationsEngine.loadDocument:345	512
+LargeCorruptTest	bad_not_pdf_random	extractPages[0]	8	13	11	11	8	Error	msg='Помилка вилучення сторінок із PDF: Error: Header doesn't contain versioninfo' cause=IOException at PDFParser.parse:217 < PDDocument.load:1219 < PDDocument.load:1119 < PdfBoxPageOperationsEngine.loadDocument:345	512
+LargeCorruptTest	bad_not_pdf_random	mergePdfs[bad+valid]	6	13	11	11	8	Error	msg='Помилка злиття PDF-файлів: Error: Header doesn't contain versioninfo' cause=IOException at PDFParser.parse:217 < PDDocument.load:1219 < PDDocument.load:1119 < PdfBoxPageOperationsEngine$mergePdfs$1.invokeSuspend:67	512
+LargeCorruptTest	bad_mediabox_negative	open+metadata (loader)	5	12	11	11	-1	OK	10	512
+LargeCorruptTest	bad_mediabox_negative	checkEditability	3	12	11	11	-1	OK	DocumentEditability(isEncrypted=false, canMarkup=true, canFillForms=true)	512
+LargeCorruptTest	bad_mediabox_negative	extractFormFields	3	12	11	11	-1	OK	[]	512
+LargeCorruptTest	bad_mediabox_negative	applyEdits[first]	23	14	11	11	8875	OK	pages=10	512
+LargeCorruptTest	bad_mediabox_negative	applyEdits[last]	86	14	11	11	8875	OK	pages=10	512
+LargeCorruptTest	bad_mediabox_negative	fillFormFields	4	12	11	11	8	Error	msg='Документ не містить форми AcroForm для заповнення' cause=IllegalArgumentException at FormFiller.apply:151 < PdfBoxFormEngine$fillFormFields$2.invokeSuspend:124	512
+LargeCorruptTest	bad_mediabox_negative	rotatePages[0]	87	12	11	11	4618	OK	pages=10	512
+LargeCorruptTest	bad_mediabox_negative	deletePages[0]	34	12	11	11	4184	OK	pages=9	512
+LargeCorruptTest	bad_mediabox_negative	extractPages[0]	28	12	11	11	890	OK	pages=1	512
+LargeCorruptTest	bad_mediabox_negative	mergePdfs[bad+valid]	42	14	11	11	11679	OK	pages=20	512
+LargeCorruptTest	bad_truncated_notail	open+metadata (loader)	2	12	11	11	-1	OK	10	512
+LargeCorruptTest	bad_truncated_notail	checkEditability	5	12	11	11	-1	OK	DocumentEditability(isEncrypted=false, canMarkup=true, canFillForms=true)	512
+LargeCorruptTest	bad_truncated_notail	extractFormFields	3	12	11	11	-1	OK	[]	512
+LargeCorruptTest	bad_truncated_notail	applyEdits[first]	16	14	11	11	8818	OK	pages=10	512
+LargeCorruptTest	bad_truncated_notail	applyEdits[last]	22	14	11	11	8818	OK	pages=10	512
+LargeCorruptTest	bad_truncated_notail	fillFormFields	4	12	11	11	8	Error	msg='Документ не містить форми AcroForm для заповнення' cause=IllegalArgumentException at FormFiller.apply:151 < PdfBoxFormEngine$fillFormFields$2.invokeSuspend:124	512
+LargeCorruptTest	bad_truncated_notail	rotatePages[0]	46	12	11	11	4558	OK	pages=10	512
+LargeCorruptTest	bad_truncated_notail	deletePages[0]	34	12	11	11	4130	OK	pages=9	512
+LargeCorruptTest	bad_truncated_notail	extractPages[0]	33	12	11	11	878	OK	pages=1	512
+LargeCorruptTest	bad_truncated_notail	mergePdfs[bad+valid]	51	14	11	11	11559	OK	pages=20	512
+LargeCorruptTest	bad_bad_trailer_root	open+metadata (loader)	2	12	11	11	-1	CRASH	IOException: Expected root dictionary, but got this: COSNull{} at PDFParser.initialParse:174 < PDFParser.parse:222 < PDDocument.load:1219 < PDDocument.load:1119	512
+LargeCorruptTest	bad_bad_trailer_root	checkEditability	2	12	11	11	-1	null		512
+LargeCorruptTest	bad_bad_trailer_root	extractFormFields	5	12	11	11	-1	CRASH	IOException: Expected root dictionary, but got this: COSNull{} at PDFParser.initialParse:174 < PDFParser.parse:222 < PDDocument.load:1219 < PDDocument.load:1119	512
+LargeCorruptTest	bad_bad_trailer_root	applyEdits[first]	9	12	11	11	8	Error	msg='Помилка збереження розмітки: Expected root dictionary, but got this: COSNull{}' cause=IOException at PDFParser.initialParse:174 < PDFParser.parse:222 < PDDocument.load:1219 < PDDocument.load:1119	512
+LargeCorruptTest	bad_bad_trailer_root	applyEdits[last]	9	12	11	11	8	Error	msg='Помилка збереження розмітки: Expected root dictionary, but got this: COSNull{}' cause=IOException at PDFParser.initialParse:174 < PDFParser.parse:222 < PDDocument.load:1219 < PDDocument.load:1119	512
+LargeCorruptTest	bad_bad_trailer_root	fillFormFields	5	12	11	11	8	Error	msg='Помилка заповнення форми PDF: Expected root dictionary, but got this: COSNull{}' cause=IOException at PDFParser.initialParse:174 < PDFParser.parse:222 < PDDocument.load:1219 < PDDocument.load:1119	512
+LargeCorruptTest	bad_bad_trailer_root	rotatePages[0]	4	12	11	11	8	Error	msg='Помилка повороту сторінок: Expected root dictionary, but got this: COSNull{}' cause=IOException at PDFParser.initialParse:174 < PDFParser.parse:222 < PDDocument.load:1219 < PDDocument.load:1119	512
+LargeCorruptTest	bad_bad_trailer_root	deletePages[0]	4	12	11	11	8	Error	msg='Помилка видалення сторінок: Expected root dictionary, but got this: COSNull{}' cause=IOException at PDFParser.initialParse:174 < PDFParser.parse:222 < PDDocument.load:1219 < PDDocument.load:1119	512
+LargeCorruptTest	bad_bad_trailer_root	extractPages[0]	4	12	11	11	8	Error	msg='Помилка вилучення сторінок із PDF: Expected root dictionary, but got this: COSNull{}' cause=IOException at PDFParser.initialParse:174 < PDFParser.parse:222 < PDDocument.load:1219 < PDDocument.load:1119	512
+LargeCorruptTest	bad_bad_trailer_root	mergePdfs[bad+valid]	5	12	11	11	8	Error	msg='Помилка злиття PDF-файлів: Expected root dictionary, but got this: COSNull{}' cause=IOException at PDFParser.initialParse:174 < PDFParser.parse:222 < PDDocument.load:1219 < PDDocument.load:1119	512
+LargeCorruptTest	bad_count_9999	open+metadata (loader)	4	12	11	11	-1	OK	9999	512
+LargeCorruptTest	bad_count_9999	checkEditability	3	12	11	11	-1	OK	DocumentEditability(isEncrypted=false, canMarkup=true, canFillForms=true)	512
+LargeCorruptTest	bad_count_9999	extractFormFields	3	12	11	11	-1	OK	[]	512
+LargeCorruptTest	bad_count_9999	applyEdits[first]	18	14	11	11	8820	OK	pages=9999	512
+LargeCorruptTest	bad_count_9999	applyEdits[last]	15	14	11	11	8820	OK	pages=9999	512
+LargeCorruptTest	bad_count_9999	fillFormFields	4	12	11	11	8	Error	msg='Документ не містить форми AcroForm для заповнення' cause=IllegalArgumentException at FormFiller.apply:151 < PdfBoxFormEngine$fillFormFields$2.invokeSuspend:124	512
+LargeCorruptTest	bad_count_9999	rotatePages[0]	66	12	11	11	4560	OK	pages=9999	512
+LargeCorruptTest	bad_count_9999	deletePages[0]	31	12	11	11	4133	OK	pages=9998	512
+LargeCorruptTest	bad_count_9999	extractPages[0]	27	12	11	11	878	OK	pages=1	512
+LargeCorruptTest	bad_count_9999	mergePdfs[bad+valid]	73	14	11	11	11559	OK	pages=20	512
+LargeCorruptTest	bad_deep_tree_5000	open+metadata (loader)	67	23	11	11	-1	OK	1	512
+LargeCorruptTest	bad_deep_tree_5000	checkEditability	118	24	11	11	-1	OK	DocumentEditability(isEncrypted=false, canMarkup=true, canFillForms=true)	512
+LargeCorruptTest	bad_deep_tree_5000	extractFormFields	55	26	11	11	-1	OK	[]	512
+LargeCorruptTest	bad_deep_tree_5000	applyEdits[first]	66	26	11	11	8	Error	msg='Помилка збереження розмітки: StackOverflowError' cause=StackOverflowError at PDPageTree.get:294 < PDPageTree.get:321 < PDPageTree.get:321 < PDPageTree.get:321	512
+LargeCorruptTest	bad_deep_tree_5000	applyEdits[last]	68	24	11	11	8	Error	msg='Індекс сторінки 9 виходить за межі документа (0..0)' cause=IndexOutOfBoundsException at PdfBoxMarkupEngine$applyEdits$2.invokeSuspend:89	512
+LargeCorruptTest	bad_deep_tree_5000	fillFormFields	116	27	11	11	8	Error	msg='Документ не містить форми AcroForm для заповнення' cause=IllegalArgumentException at FormFiller.apply:151 < PdfBoxFormEngine$fillFormFields$2.invokeSuspend:124	512
+LargeCorruptTest	bad_deep_tree_5000	rotatePages[0]	54	26	11	11	8	Error	msg='Помилка повороту сторінок: StackOverflowError' cause=StackOverflowError at PDPageTree.get:294 < PDPageTree.get:321 < PDPageTree.get:321 < PDPageTree.get:321	512
+LargeCorruptTest	bad_deep_tree_5000	deletePages[0]	89	27	11	11	8	Error	msg='Неможливо видалити всі сторінки. Документ має містити щонайменше 1 сторінку (всього: 1, до видалення' cause=IllegalArgumentException at PdfBoxPageOperationsEngine$deletePages$2.invokeSuspend:213	512
+LargeCorruptTest	bad_deep_tree_5000	extractPages[0]	98	28	11	11	590	OK	pages=1	512
+LargeCorruptTest	bad_deep_tree_5000	mergePdfs[bad+valid]	179	29	11	11	8	Error	msg='Помилка злиття PDF-файлів: StackOverflowError' cause=StackOverflowError at PDFCloneUtility.cloneForNewDocument:84 < PDFCloneUtility.cloneForNewDocument:127 < PDFCloneUtility.cloneForNewDocument:170 < PDFCloneUtility.cloneForNewDocument:112	512
+LargeCorruptTest	bad_mediabox_float_overflow	open+metadata (loader)	4	12	11	11	-1	OK	10	512
+LargeCorruptTest	bad_mediabox_float_overflow	checkEditability	4	12	11	11	-1	OK	DocumentEditability(isEncrypted=false, canMarkup=true, canFillForms=true)	512
+LargeCorruptTest	bad_mediabox_float_overflow	extractFormFields	4	12	11	11	-1	OK	[]	512
+LargeCorruptTest	bad_mediabox_float_overflow	applyEdits[first]	14	14	11	11	9151	OK	pages=10	512
+LargeCorruptTest	bad_mediabox_float_overflow	applyEdits[last]	16	14	11	11	9151	OK	pages=10	512
+LargeCorruptTest	bad_mediabox_float_overflow	fillFormFields	8	12	11	11	8	Error	msg='Документ не містить форми AcroForm для заповнення' cause=IllegalArgumentException at FormFiller.apply:151 < PdfBoxFormEngine$fillFormFields$2.invokeSuspend:124	512
+LargeCorruptTest	bad_mediabox_float_overflow	rotatePages[0]	53	12	11	11	4878	OK	pages=10	512
+LargeCorruptTest	bad_mediabox_float_overflow	deletePages[0]	56	12	11	11	4418	OK	pages=9	512
+LargeCorruptTest	bad_mediabox_float_overflow	extractPages[0]	29	12	11	11	934	OK	pages=1	512
+LargeCorruptTest	bad_mediabox_float_overflow	mergePdfs[bad+valid]	47	14	11	11	12120	OK	pages=20	512
+LargeCorruptTest	bad_selfref_tree	open+metadata (loader)	1	12	11	11	-1	OK	2	512
+LargeCorruptTest	bad_selfref_tree	checkEditability	3	12	11	11	-1	OK	DocumentEditability(isEncrypted=false, canMarkup=true, canFillForms=true)	512
+LargeCorruptTest	bad_selfref_tree	extractFormFields	4	12	11	11	-1	OK	[]	512
+LargeCorruptTest	bad_selfref_tree	applyEdits[first]	11	13	11	11	8	Error	msg='Помилка збереження розмітки: Possible recursion found when searching for page 1' cause=IllegalStateException at PDPageTree.get:297 < PDPageTree.get:321 < PDPageTree.get:256 < PDDocument.getPage:1534	512
+LargeCorruptTest	bad_selfref_tree	applyEdits[last]	7	13	11	11	8	Error	msg='Індекс сторінки 9 виходить за межі документа (0..1)' cause=IndexOutOfBoundsException at PdfBoxMarkupEngine$applyEdits$2.invokeSuspend:89	512
+LargeCorruptTest	bad_selfref_tree	fillFormFields	4	12	11	11	8	Error	msg='Документ не містить форми AcroForm для заповнення' cause=IllegalArgumentException at FormFiller.apply:151 < PdfBoxFormEngine$fillFormFields$2.invokeSuspend:124	512
+LargeCorruptTest	bad_selfref_tree	rotatePages[0]	8	12	11	11	8	Error	msg='Помилка повороту сторінок: Possible recursion found when searching for page 1' cause=IllegalStateException at PDPageTree.get:297 < PDPageTree.get:321 < PDPageTree.get:256 < PDDocument.getPage:1534	512
+LargeCorruptTest	bad_selfref_tree	deletePages[0]	4	12	11	11	8	Error	msg='Помилка видалення сторінок: Possible recursion found when searching for page 1' cause=IllegalStateException at PDPageTree.get:297 < PDPageTree.get:321 < PDPageTree.remove:448 < PDDocument.removePage:735	512
+LargeCorruptTest	bad_selfref_tree	extractPages[0]	5	12	11	11	8	Error	msg='Помилка вилучення сторінок із PDF: Possible recursion found when searching for page 1' cause=IllegalStateException at PDPageTree.get:297 < PDPageTree.get:321 < PDPageTree.get:256 < PDDocument.getPage:1534	512
+LargeCorruptTest	bad_selfref_tree	mergePdfs[bad+valid]	45	13	11	11	6180	OK	pages=12	512
+LargeCorruptTest	bad_header_only	open+metadata (loader)	1	12	11	11	-1	CRASH	IOException: Missing root object specification in trailer. at COSParser.parseTrailerValuesDynamically:2940 < PDFParser.initialParse:171 < PDFParser.parse:222 < PDDocument.load:1219	512
+LargeCorruptTest	bad_header_only	checkEditability	2	12	11	11	-1	null		512
+LargeCorruptTest	bad_header_only	extractFormFields	3	12	11	11	-1	CRASH	IOException: Missing root object specification in trailer. at COSParser.parseTrailerValuesDynamically:2940 < PDFParser.initialParse:171 < PDFParser.parse:222 < PDDocument.load:1219	512
+LargeCorruptTest	bad_header_only	applyEdits[first]	5	12	11	11	8	Error	msg='Помилка збереження розмітки: Missing root object specification in trailer.' cause=IOException at COSParser.parseTrailerValuesDynamically:2940 < PDFParser.initialParse:171 < PDFParser.parse:222 < PDDocument.load:1219	512
+LargeCorruptTest	bad_header_only	applyEdits[last]	5	12	11	11	8	Error	msg='Помилка збереження розмітки: Missing root object specification in trailer.' cause=IOException at COSParser.parseTrailerValuesDynamically:2940 < PDFParser.initialParse:171 < PDFParser.parse:222 < PDDocument.load:1219	512
+LargeCorruptTest	bad_header_only	fillFormFields	4	12	11	11	8	Error	msg='Помилка заповнення форми PDF: Missing root object specification in trailer.' cause=IOException at COSParser.parseTrailerValuesDynamically:2940 < PDFParser.initialParse:171 < PDFParser.parse:222 < PDDocument.load:1219	512
+LargeCorruptTest	bad_header_only	rotatePages[0]	4	12	11	11	8	Error	msg='Помилка повороту сторінок: Missing root object specification in trailer.' cause=IOException at COSParser.parseTrailerValuesDynamically:2940 < PDFParser.initialParse:171 < PDFParser.parse:222 < PDDocument.load:1219	512
+LargeCorruptTest	bad_header_only	deletePages[0]	4	12	11	11	8	Error	msg='Помилка видалення сторінок: Missing root object specification in trailer.' cause=IOException at COSParser.parseTrailerValuesDynamically:2940 < PDFParser.initialParse:171 < PDFParser.parse:222 < PDDocument.load:1219	512
+LargeCorruptTest	bad_header_only	extractPages[0]	3	12	11	11	8	Error	msg='Помилка вилучення сторінок із PDF: Missing root object specification in trailer.' cause=IOException at COSParser.parseTrailerValuesDynamically:2940 < PDFParser.initialParse:171 < PDFParser.parse:222 < PDDocument.load:1219	512
+LargeCorruptTest	bad_header_only	mergePdfs[bad+valid]	12	12	11	11	8	Error	msg='Помилка злиття PDF-файлів: Missing root object specification in trailer.' cause=IOException at COSParser.parseTrailerValuesDynamically:2940 < PDFParser.initialParse:171 < PDFParser.parse:222 < PDDocument.load:1219	512
+LargeCorruptTest	bad_flate_bomb_1g_content	open+metadata (loader)	106	14	10	10	-1	OK	2	512
+LargeCorruptTest	bad_flate_bomb_1g_content	checkEditability	144	16	10	10	-1	OK	DocumentEditability(isEncrypted=false, canMarkup=true, canFillForms=true)	512
+LargeCorruptTest	bad_flate_bomb_1g_content	extractFormFields	64	13	11	11	-1	OK	[]	512
+LargeCorruptTest	bad_flate_bomb_1g_content	applyEdits[first]	172	18	11	11	1048650	OK	pages=2	512
+LargeCorruptTest	bad_flate_bomb_1g_content	applyEdits[last]	137	15	11	11	8	Error	msg='Індекс сторінки 9 виходить за межі документа (0..1)' cause=IndexOutOfBoundsException at PdfBoxMarkupEngine$applyEdits$2.invokeSuspend:89	512
+LargeCorruptTest	bad_flate_bomb_1g_content	fillFormFields	29	13	11	11	8	Error	msg='Документ не містить форми AcroForm для заповнення' cause=IllegalArgumentException at FormFiller.apply:151 < PdfBoxFormEngine$fillFormFields$2.invokeSuspend:124	512
+LargeCorruptTest	bad_flate_bomb_1g_content	rotatePages[0]	92	14	11	11	1044281	OK	pages=2	512
+LargeCorruptTest	bad_flate_bomb_1g_content	deletePages[0]	96	14	11	11	411	OK	pages=1	512
+LargeCorruptTest	bad_flate_bomb_1g_content	extractPages[0]	2171	511	11	10	8	Error	msg='Файл завеликий для редагування' cause=OutOfMemoryError at COSDocument.getObjects:390 < COSDocument.close:471 < IOUtils.closeAndLogException:136 < PDDocument.close:1581	512
+LargeCorruptTest	bad_flate_bomb_1g_content	mergePdfs[bad+valid]	100	16	10	10	1050145	OK	pages=12	512
+LargeCorruptTest	bad_flate_bomb_image	open+metadata (loader)	177	19	10	10	-1	OK	1	512
+LargeCorruptTest	bad_flate_bomb_image	checkEditability	315	21	10	10	-1	OK	DocumentEditability(isEncrypted=false, canMarkup=true, canFillForms=true)	512
+LargeCorruptTest	bad_flate_bomb_image	extractFormFields	242	18	11	11	-1	OK	[]	512
+LargeCorruptTest	bad_flate_bomb_image	applyEdits[first]	262	23	11	11	3504129	OK	pages=1	512
+LargeCorruptTest	bad_flate_bomb_image	applyEdits[last]	192	20	11	11	8	Error	msg='Індекс сторінки 9 виходить за межі документа (0..0)' cause=IndexOutOfBoundsException at PdfBoxMarkupEngine$applyEdits$2.invokeSuspend:89	512
+LargeCorruptTest	bad_flate_bomb_image	fillFormFields	162	18	11	11	8	Error	msg='Документ не містить форми AcroForm для заповнення' cause=IllegalArgumentException at FormFiller.apply:151 < PdfBoxFormEngine$fillFormFields$2.invokeSuspend:124	512
+LargeCorruptTest	bad_flate_bomb_image	rotatePages[0]	158	18	11	11	3499820	OK	pages=1	512
+LargeCorruptTest	bad_flate_bomb_image	deletePages[0]	124	19	11	11	8	Error	msg='Неможливо видалити всі сторінки. Документ має містити щонайменше 1 сторінку (всього: 1, до видалення' cause=IllegalArgumentException at PdfBoxPageOperationsEngine$deletePages$2.invokeSuspend:213	512
+LargeCorruptTest	bad_flate_bomb_image	extractPages[0]	169	22	11	11	3499896	OK	pages=1	512
+LargeCorruptTest	bad_flate_bomb_image	mergePdfs[bad+valid]	232	24	11	11	3505558	OK	pages=11	512
+LargeEncryptedTest	enc_RC4_40_upw_all	checkEditability(pw)	126	16	10	10	-1	OK	DocumentEditability(isEncrypted=true, canMarkup=true, canFillForms=true)	512
+LargeEncryptedTest	enc_RC4_40_upw_all	checkEditability(no pw)	9	11	11	11	-1	null		512
+LargeEncryptedTest	enc_RC4_40_upw_all	applyEdits(wrong pw)	86	13	11	11	-1	Error	msg='Невірний пароль для захищеного PDF-документа' cause=InvalidPasswordException at StandardSecurityHandler.prepareForDecryption:279 < COSParser.prepareDecryption:2985 < COSParser.retrieveTrailer:284 < PDFParser.initialParse:169	512
+LargeEncryptedTest	enc_RC4_40_upw_all	fillFormFields(wrong pw)	15	11	11	11	-1	Error	msg='Невірний пароль для захищеного PDF-документа' cause=InvalidPasswordException at StandardSecurityHandler.prepareForDecryption:279 < COSParser.prepareDecryption:2985 < COSParser.retrieveTrailer:284 < PDFParser.initialParse:169	512
+LargeEncryptedTest	enc_RC4_40_upw_all	extractFormFields(wrong pw)	47	13	11	11	-1	CRASH	InvalidPasswordException: Cannot decrypt PDF, the password is incorrect at StandardSecurityHandler.prepareForDecryption:279 < COSParser.prepareDecryption:2985 < COSParser.retrieveTrailer:284 < PDFParser.initialParse:169	512
+LargeEncryptedTest	enc_RC4_40_upw_all	applyEdits->copy	356	25	11	14	9488	OK	pages=15	512
+LargeEncryptedTest	enc_RC4_40_upw_all	applyEdits->same URI	25	15	14	14	4365	Error	msg='Зашифрований документ можна зберегти лише як нову копію, а не поверх оригіналу' cause=IllegalArgumentException at PdfIo.enforcePolicy:69 < PdfBoxMarkupEngine$applyEdits$2.invokeSuspend:72	512
+LargeEncryptedTest	enc_RC4_40_upw_all	fillFormFields->copy	34	15	14	14	5505	OK	pages=15	512
+LargeEncryptedTest	enc_RC4_40_upw_all	extractFormFields(pw)	23	15	14	14	-1	OK	[Text(fullyQualifiedName=t_0, partialName=t_0, alternateTitle=null, isReadOnly=f	512
+LargeEncryptedTest	enc_RC4_40_upw_all	rotatePages	18	15	14	14	0	Error	msg='Помилка повороту сторінок: PDF contains an encryption dictionary, please remove it with setAllSecuri' cause=IllegalStateException at COSWriter.write:1368 < COSWriter.write:1320 < PDDocument.save:1366 < PdfBoxPageOperationsEngine$rotatePages$2.invokeSuspend:172	512
+LargeEncryptedTest	enc_RC4_40_upw_all	extractPages	95	18	14	14	4375	OK	pages=2	512
+LargeEncryptedTest	enc_RC4_40_upw_all	deletePages	20	15	14	14	0	Error	msg='Помилка видалення сторінок: PDF contains an encryption dictionary, please remove it with setAllSecur' cause=IllegalStateException at COSWriter.write:1368 < COSWriter.write:1320 < PDDocument.save:1366 < PdfBoxPageOperationsEngine$deletePages$2.invokeSuspend:224	512
+LargeEncryptedTest	enc_AES_128_upw_restr	checkEditability(pw)	36	16	14	14	-1	OK	DocumentEditability(isEncrypted=true, canMarkup=false, canFillForms=false)	512
+LargeEncryptedTest	enc_AES_128_upw_restr	checkEditability(no pw)	5	15	14	14	-1	null		512
+LargeEncryptedTest	enc_AES_128_upw_restr	applyEdits(wrong pw)	12	15	14	14	-1	Error	msg='Невірний пароль для захищеного PDF-документа' cause=InvalidPasswordException at StandardSecurityHandler.prepareForDecryption:279 < COSParser.prepareDecryption:2985 < COSParser.retrieveTrailer:284 < PDFParser.initialParse:169	512
+LargeEncryptedTest	enc_AES_128_upw_restr	fillFormFields(wrong pw)	10	15	14	14	-1	Error	msg='Невірний пароль для захищеного PDF-документа' cause=InvalidPasswordException at StandardSecurityHandler.prepareForDecryption:279 < COSParser.prepareDecryption:2985 < COSParser.retrieveTrailer:284 < PDFParser.initialParse:169	512
+LargeEncryptedTest	enc_AES_128_upw_restr	extractFormFields(wrong pw)	5	15	14	14	-1	CRASH	InvalidPasswordException: Cannot decrypt PDF, the password is incorrect at StandardSecurityHandler.prepareForDecryption:279 < COSParser.prepareDecryption:2985 < COSParser.retrieveTrailer:284 < PDFParser.initialParse:169	512
+LargeEncryptedTest	enc_AES_128_upw_restr	applyEdits->copy	18	16	14	14	-1	Error	msg='Права документа забороняють зміну' cause=PdfPermissionException at PdfIo.enforcePolicy:66 < PdfBoxMarkupEngine$applyEdits$2.invokeSuspend:72	512
+LargeEncryptedTest	enc_AES_128_upw_restr	applyEdits->same URI	32	16	14	14	5929	Error	msg='Права документа забороняють зміну' cause=PdfPermissionException at PdfIo.enforcePolicy:66 < PdfBoxMarkupEngine$applyEdits$2.invokeSuspend:72	512
+LargeEncryptedTest	enc_AES_128_upw_restr	fillFormFields->copy	11	15	14	14	-1	Error	msg='Права документа забороняють заповнення форм' cause=PdfPermissionException at PdfIo.enforcePolicy:67 < PdfBoxFormEngine$fillFormFields$2.invokeSuspend:122	512
+LargeEncryptedTest	enc_AES_128_upw_restr	extractFormFields(pw)	10	15	14	14	-1	OK	[Text(fullyQualifiedName=t_0, partialName=t_0, alternateTitle=null, isReadOnly=f	512
+LargeEncryptedTest	enc_AES_128_upw_restr	rotatePages	14	15	14	14	0	Error	msg='Помилка повороту сторінок: PDF contains an encryption dictionary, please remove it with setAllSecuri' cause=IllegalStateException at COSWriter.write:1368 < COSWriter.write:1320 < PDDocument.save:1366 < PdfBoxPageOperationsEngine$rotatePages$2.invokeSuspend:172	512
+LargeEncryptedTest	enc_AES_128_upw_restr	extractPages	43	16	14	14	4375	OK	pages=2	512
+LargeEncryptedTest	enc_AES_128_upw_restr	deletePages	9	15	14	14	0	Error	msg='Помилка видалення сторінок: PDF contains an encryption dictionary, please remove it with setAllSecur' cause=IllegalStateException at COSWriter.write:1368 < COSWriter.write:1320 < PDDocument.save:1366 < PdfBoxPageOperationsEngine$deletePages$2.invokeSuspend:224	512
+LargeEncryptedTest	enc_AES_256_upw_all	checkEditability(pw)	127	20	14	14	-1	OK	DocumentEditability(isEncrypted=true, canMarkup=true, canFillForms=true)	512
+LargeEncryptedTest	enc_AES_256_upw_all	checkEditability(no pw)	16	17	14	14	-1	null		512
+LargeEncryptedTest	enc_AES_256_upw_all	applyEdits(wrong pw)	27	18	14	14	-1	Error	msg='Невірний пароль для захищеного PDF-документа' cause=InvalidPasswordException at StandardSecurityHandler.prepareForDecryption:279 < COSParser.prepareDecryption:2985 < COSParser.retrieveTrailer:284 < PDFParser.initialParse:169	512
+LargeEncryptedTest	enc_AES_256_upw_all	fillFormFields(wrong pw)	20	17	14	14	-1	Error	msg='Невірний пароль для захищеного PDF-документа' cause=InvalidPasswordException at StandardSecurityHandler.prepareForDecryption:279 < COSParser.prepareDecryption:2985 < COSParser.retrieveTrailer:284 < PDFParser.initialParse:169	512
+LargeEncryptedTest	enc_AES_256_upw_all	extractFormFields(wrong pw)	28	17	14	14	-1	CRASH	InvalidPasswordException: Cannot decrypt PDF, the password is incorrect at StandardSecurityHandler.prepareForDecryption:279 < COSParser.prepareDecryption:2985 < COSParser.retrieveTrailer:284 < PDFParser.initialParse:169	512
+LargeEncryptedTest	enc_AES_256_upw_all	applyEdits->copy	83	27	14	14	11630	OK	pages=15	512
+LargeEncryptedTest	enc_AES_256_upw_all	applyEdits->same URI	27	20	14	14	6175	Error	msg='Зашифрований документ можна зберегти лише як нову копію, а не поверх оригіналу' cause=IllegalArgumentException at PdfIo.enforcePolicy:69 < PdfBoxMarkupEngine$applyEdits$2.invokeSuspend:72	512
+LargeEncryptedTest	enc_AES_256_upw_all	fillFormFields->copy	42	25	14	14	7382	OK	pages=15	512
+LargeEncryptedTest	enc_AES_256_upw_all	extractFormFields(pw)	14	19	14	14	-1	OK	[Text(fullyQualifiedName=t_0, partialName=t_0, alternateTitle=null, isReadOnly=f	512
+LargeEncryptedTest	enc_AES_256_upw_all	rotatePages	16	19	14	14	0	Error	msg='Помилка повороту сторінок: PDF contains an encryption dictionary, please remove it with setAllSecuri' cause=IllegalStateException at COSWriter.write:1368 < COSWriter.write:1320 < PDDocument.save:1366 < PdfBoxPageOperationsEngine$rotatePages$2.invokeSuspend:172	512
+LargeEncryptedTest	enc_AES_256_upw_all	extractPages	65	20	14	14	4375	OK	pages=2	512
+LargeEncryptedTest	enc_AES_256_upw_all	deletePages	48	19	14	14	0	Error	msg='Помилка видалення сторінок: PDF contains an encryption dictionary, please remove it with setAllSecur' cause=IllegalStateException at COSWriter.write:1368 < COSWriter.write:1320 < PDDocument.save:1366 < PdfBoxPageOperationsEngine$deletePages$2.invokeSuspend:224	512
+LargeEncryptedTest	enc_RC4_128_nopw_restr	checkEditability(pw)	4	15	14	14	-1	OK	DocumentEditability(isEncrypted=true, canMarkup=false, canFillForms=false)	512
+LargeEncryptedTest	enc_RC4_128_nopw_restr	applyEdits->copy	10	16	14	14	-1	Error	msg='Права документа забороняють зміну' cause=PdfPermissionException at PdfIo.enforcePolicy:66 < PdfBoxMarkupEngine$applyEdits$2.invokeSuspend:72	512
+LargeEncryptedTest	enc_RC4_128_nopw_restr	applyEdits->same URI	14	16	14	14	4390	Error	msg='Права документа забороняють зміну' cause=PdfPermissionException at PdfIo.enforcePolicy:66 < PdfBoxMarkupEngine$applyEdits$2.invokeSuspend:72	512
+LargeEncryptedTest	enc_RC4_128_nopw_restr	fillFormFields->copy	7	15	14	14	-1	Error	msg='Права документа забороняють заповнення форм' cause=PdfPermissionException at PdfIo.enforcePolicy:67 < PdfBoxFormEngine$fillFormFields$2.invokeSuspend:122	512
+LargeEncryptedTest	enc_RC4_128_nopw_restr	extractFormFields(pw)	5	15	14	14	-1	OK	[Text(fullyQualifiedName=t_0, partialName=t_0, alternateTitle=null, isReadOnly=f	512
+LargeEncryptedTest	enc_RC4_128_nopw_restr	rotatePages	9	15	14	14	0	Error	msg='Помилка повороту сторінок: PDF contains an encryption dictionary, please remove it with setAllSecuri' cause=IllegalStateException at COSWriter.write:1368 < COSWriter.write:1320 < PDDocument.save:1366 < PdfBoxPageOperationsEngine$rotatePages$2.invokeSuspend:172	512
+LargeEncryptedTest	enc_RC4_128_nopw_restr	extractPages	92	16	14	14	4375	OK	pages=2	512
+LargeEncryptedTest	enc_RC4_128_nopw_restr	deletePages	11	15	14	14	0	Error	msg='Помилка видалення сторінок: PDF contains an encryption dictionary, please remove it with setAllSecur' cause=IllegalStateException at COSWriter.write:1368 < COSWriter.write:1320 < PDDocument.save:1366 < PdfBoxPageOperationsEngine$deletePages$2.invokeSuspend:224	512
+LargeEncryptedTest	enc_AES_128_nopw_restr	checkEditability(pw)	6	15	14	14	-1	OK	DocumentEditability(isEncrypted=true, canMarkup=false, canFillForms=false)	512
+LargeEncryptedTest	enc_AES_128_nopw_restr	applyEdits->copy	13	16	14	14	-1	Error	msg='Права документа забороняють зміну' cause=PdfPermissionException at PdfIo.enforcePolicy:66 < PdfBoxMarkupEngine$applyEdits$2.invokeSuspend:72	512
+LargeEncryptedTest	enc_AES_128_nopw_restr	applyEdits->same URI	24	16	14	14	5929	Error	msg='Права документа забороняють зміну' cause=PdfPermissionException at PdfIo.enforcePolicy:66 < PdfBoxMarkupEngine$applyEdits$2.invokeSuspend:72	512
+LargeEncryptedTest	enc_AES_128_nopw_restr	fillFormFields->copy	5	15	14	14	-1	Error	msg='Права документа забороняють заповнення форм' cause=PdfPermissionException at PdfIo.enforcePolicy:67 < PdfBoxFormEngine$fillFormFields$2.invokeSuspend:122	512
+LargeEncryptedTest	enc_AES_128_nopw_restr	extractFormFields(pw)	9	15	14	14	-1	OK	[Text(fullyQualifiedName=t_0, partialName=t_0, alternateTitle=null, isReadOnly=f	512
+LargeEncryptedTest	enc_AES_128_nopw_restr	rotatePages	8	15	14	14	0	Error	msg='Помилка повороту сторінок: PDF contains an encryption dictionary, please remove it with setAllSecuri' cause=IllegalStateException at COSWriter.write:1368 < COSWriter.write:1320 < PDDocument.save:1366 < PdfBoxPageOperationsEngine$rotatePages$2.invokeSuspend:172	512
+LargeEncryptedTest	enc_AES_128_nopw_restr	extractPages	46	16	14	14	4375	OK	pages=2	512
+LargeEncryptedTest	enc_AES_128_nopw_restr	deletePages	16	15	14	14	0	Error	msg='Помилка видалення сторінок: PDF contains an encryption dictionary, please remove it with setAllSecur' cause=IllegalStateException at COSWriter.write:1368 < COSWriter.write:1320 < PDDocument.save:1366 < PdfBoxPageOperationsEngine$deletePages$2.invokeSuspend:224	512
+LargeEncryptedTest	enc_big60_aes256	applyEdits->copy	778	211	14	14	62934440	OK	pages=30	512
+LargeEncryptedTest	enc_big60_aes256	extractPages[5]	372	237	14	14	10488651	OK	pages=5	512
+LargeEncryptedTest	enc_RC4_128_upw_all	checkEditability(pw)	6	15	14	14	-1	OK	DocumentEditability(isEncrypted=true, canMarkup=true, canFillForms=true)	512
+LargeEncryptedTest	enc_RC4_128_upw_all	checkEditability(no pw)	3	15	14	14	-1	null		512
+LargeEncryptedTest	enc_RC4_128_upw_all	applyEdits(wrong pw)	10	16	14	14	-1	Error	msg='Невірний пароль для захищеного PDF-документа' cause=InvalidPasswordException at StandardSecurityHandler.prepareForDecryption:279 < COSParser.prepareDecryption:2985 < COSParser.retrieveTrailer:284 < PDFParser.initialParse:169	512
+LargeEncryptedTest	enc_RC4_128_upw_all	fillFormFields(wrong pw)	4	15	14	14	-1	Error	msg='Невірний пароль для захищеного PDF-документа' cause=InvalidPasswordException at StandardSecurityHandler.prepareForDecryption:279 < COSParser.prepareDecryption:2985 < COSParser.retrieveTrailer:284 < PDFParser.initialParse:169	512
+LargeEncryptedTest	enc_RC4_128_upw_all	extractFormFields(wrong pw)	5	15	14	14	-1	CRASH	InvalidPasswordException: Cannot decrypt PDF, the password is incorrect at StandardSecurityHandler.prepareForDecryption:279 < COSParser.prepareDecryption:2985 < COSParser.retrieveTrailer:284 < PDFParser.initialParse:169	512
+LargeEncryptedTest	enc_RC4_128_upw_all	applyEdits->copy	50	18	14	14	11382	OK	pages=15	512
+LargeEncryptedTest	enc_RC4_128_upw_all	applyEdits->same URI	18	16	14	14	4390	Error	msg='Зашифрований документ можна зберегти лише як нову копію, а не поверх оригіналу' cause=IllegalArgumentException at PdfIo.enforcePolicy:69 < PdfBoxMarkupEngine$applyEdits$2.invokeSuspend:72	512
+LargeEncryptedTest	enc_RC4_128_upw_all	fillFormFields->copy	23	16	14	14	7134	OK	pages=15	512
+LargeEncryptedTest	enc_RC4_128_upw_all	extractFormFields(pw)	6	15	14	14	-1	OK	[Text(fullyQualifiedName=t_0, partialName=t_0, alternateTitle=null, isReadOnly=f	512
+LargeEncryptedTest	enc_RC4_128_upw_all	rotatePages	7	15	14	14	0	Error	msg='Помилка повороту сторінок: PDF contains an encryption dictionary, please remove it with setAllSecuri' cause=IllegalStateException at COSWriter.write:1368 < COSWriter.write:1320 < PDDocument.save:1366 < PdfBoxPageOperationsEngine$rotatePages$2.invokeSuspend:172	512
+LargeEncryptedTest	enc_RC4_128_upw_all	extractPages	45	16	14	14	4375	OK	pages=2	512
+LargeEncryptedTest	enc_RC4_128_upw_all	deletePages	9	15	14	14	0	Error	msg='Помилка видалення сторінок: PDF contains an encryption dictionary, please remove it with setAllSecur' cause=IllegalStateException at COSWriter.write:1368 < COSWriter.write:1320 < PDDocument.save:1366 < PdfBoxPageOperationsEngine$deletePages$2.invokeSuspend:224	512
+LargeEncryptedTest	enc_RC4_128_nopw_all	checkEditability(pw)	4	15	14	14	-1	OK	DocumentEditability(isEncrypted=true, canMarkup=true, canFillForms=true)	512
+LargeEncryptedTest	enc_RC4_128_nopw_all	applyEdits->copy	37	18	14	14	11382	OK	pages=15	512
+LargeEncryptedTest	enc_RC4_128_nopw_all	applyEdits->same URI	6	16	14	14	4387	Error	msg='Зашифрований документ можна зберегти лише як нову копію, а не поверх оригіналу' cause=IllegalArgumentException at PdfIo.enforcePolicy:69 < PdfBoxMarkupEngine$applyEdits$2.invokeSuspend:72	512
+LargeEncryptedTest	enc_RC4_128_nopw_all	fillFormFields->copy	20	16	14	14	7134	OK	pages=15	512
+LargeEncryptedTest	enc_RC4_128_nopw_all	extractFormFields(pw)	5	15	14	14	-1	OK	[Text(fullyQualifiedName=t_0, partialName=t_0, alternateTitle=null, isReadOnly=f	512
+LargeEncryptedTest	enc_RC4_128_nopw_all	rotatePages	7	15	14	14	0	Error	msg='Помилка повороту сторінок: PDF contains an encryption dictionary, please remove it with setAllSecuri' cause=IllegalStateException at COSWriter.write:1368 < COSWriter.write:1320 < PDDocument.save:1366 < PdfBoxPageOperationsEngine$rotatePages$2.invokeSuspend:172	512
+LargeEncryptedTest	enc_RC4_128_nopw_all	extractPages	42	16	14	14	4375	OK	pages=2	512
+LargeEncryptedTest	enc_RC4_128_nopw_all	deletePages	7	15	14	14	0	Error	msg='Помилка видалення сторінок: PDF contains an encryption dictionary, please remove it with setAllSecur' cause=IllegalStateException at COSWriter.write:1368 < COSWriter.write:1320 < PDDocument.save:1366 < PdfBoxPageOperationsEngine$deletePages$2.invokeSuspend:224	512
+LargeEncryptedTest	enc_RC4_128_upw_restr	checkEditability(pw)	5	15	14	14	-1	OK	DocumentEditability(isEncrypted=true, canMarkup=false, canFillForms=false)	512
+LargeEncryptedTest	enc_RC4_128_upw_restr	checkEditability(no pw)	5	15	14	14	-1	null		512
+LargeEncryptedTest	enc_RC4_128_upw_restr	applyEdits(wrong pw)	7	16	14	14	-1	Error	msg='Невірний пароль для захищеного PDF-документа' cause=InvalidPasswordException at StandardSecurityHandler.prepareForDecryption:279 < COSParser.prepareDecryption:2985 < COSParser.retrieveTrailer:284 < PDFParser.initialParse:169	512
+LargeEncryptedTest	enc_RC4_128_upw_restr	fillFormFields(wrong pw)	9	15	14	14	-1	Error	msg='Невірний пароль для захищеного PDF-документа' cause=InvalidPasswordException at StandardSecurityHandler.prepareForDecryption:279 < COSParser.prepareDecryption:2985 < COSParser.retrieveTrailer:284 < PDFParser.initialParse:169	512
+LargeEncryptedTest	enc_RC4_128_upw_restr	extractFormFields(wrong pw)	3	15	14	14	-1	CRASH	InvalidPasswordException: Cannot decrypt PDF, the password is incorrect at StandardSecurityHandler.prepareForDecryption:279 < COSParser.prepareDecryption:2985 < COSParser.retrieveTrailer:284 < PDFParser.initialParse:169	512
+LargeEncryptedTest	enc_RC4_128_upw_restr	applyEdits->copy	41	16	14	14	-1	Error	msg='Права документа забороняють зміну' cause=PdfPermissionException at PdfIo.enforcePolicy:66 < PdfBoxMarkupEngine$applyEdits$2.invokeSuspend:72	512
+LargeEncryptedTest	enc_RC4_128_upw_restr	applyEdits->same URI	9	16	14	14	4387	Error	msg='Права документа забороняють зміну' cause=PdfPermissionException at PdfIo.enforcePolicy:66 < PdfBoxMarkupEngine$applyEdits$2.invokeSuspend:72	512
+LargeEncryptedTest	enc_RC4_128_upw_restr	fillFormFields->copy	6	15	14	14	-1	Error	msg='Права документа забороняють заповнення форм' cause=PdfPermissionException at PdfIo.enforcePolicy:67 < PdfBoxFormEngine$fillFormFields$2.invokeSuspend:122	512
+LargeEncryptedTest	enc_RC4_128_upw_restr	extractFormFields(pw)	4	15	14	14	-1	OK	[Text(fullyQualifiedName=t_0, partialName=t_0, alternateTitle=null, isReadOnly=f	512
+LargeEncryptedTest	enc_RC4_128_upw_restr	rotatePages	8	15	14	14	0	Error	msg='Помилка повороту сторінок: PDF contains an encryption dictionary, please remove it with setAllSecuri' cause=IllegalStateException at COSWriter.write:1368 < COSWriter.write:1320 < PDDocument.save:1366 < PdfBoxPageOperationsEngine$rotatePages$2.invokeSuspend:172	512
+LargeEncryptedTest	enc_RC4_128_upw_restr	extractPages	62	16	14	14	4375	OK	pages=2	512
+LargeEncryptedTest	enc_RC4_128_upw_restr	deletePages	19	15	14	14	0	Error	msg='Помилка видалення сторінок: PDF contains an encryption dictionary, please remove it with setAllSecur' cause=IllegalStateException at COSWriter.write:1368 < COSWriter.write:1320 < PDDocument.save:1366 < PdfBoxPageOperationsEngine$deletePages$2.invokeSuspend:224	512
+LargeEncryptedTest	enc_RC4_40_nopw_all	checkEditability(pw)	4	15	14	14	-1	OK	DocumentEditability(isEncrypted=true, canMarkup=true, canFillForms=true)	512
+LargeEncryptedTest	enc_RC4_40_nopw_all	applyEdits->copy	31	17	14	14	9460	OK	pages=15	512
+LargeEncryptedTest	enc_RC4_40_nopw_all	applyEdits->same URI	8	16	14	14	4384	Error	msg='Зашифрований документ можна зберегти лише як нову копію, а не поверх оригіналу' cause=IllegalArgumentException at PdfIo.enforcePolicy:69 < PdfBoxMarkupEngine$applyEdits$2.invokeSuspend:72	512
+LargeEncryptedTest	enc_RC4_40_nopw_all	fillFormFields->copy	32	16	14	14	5477	OK	pages=15	512
+LargeEncryptedTest	enc_RC4_40_nopw_all	extractFormFields(pw)	5	15	14	14	-1	OK	[Text(fullyQualifiedName=t_0, partialName=t_0, alternateTitle=null, isReadOnly=f	512
+LargeEncryptedTest	enc_RC4_40_nopw_all	rotatePages	7	15	14	14	0	Error	msg='Помилка повороту сторінок: PDF contains an encryption dictionary, please remove it with setAllSecuri' cause=IllegalStateException at COSWriter.write:1368 < COSWriter.write:1320 < PDDocument.save:1366 < PdfBoxPageOperationsEngine$rotatePages$2.invokeSuspend:172	512
+LargeEncryptedTest	enc_RC4_40_nopw_all	extractPages	61	16	14	14	4375	OK	pages=2	512
+LargeEncryptedTest	enc_RC4_40_nopw_all	deletePages	5	15	14	14	0	Error	msg='Помилка видалення сторінок: PDF contains an encryption dictionary, please remove it with setAllSecur' cause=IllegalStateException at COSWriter.write:1368 < COSWriter.write:1320 < PDDocument.save:1366 < PdfBoxPageOperationsEngine$deletePages$2.invokeSuspend:224	512
+LargeEncryptedTest	enc_AES_256_nopw_all	checkEditability(pw)	13	18	14	14	-1	OK	DocumentEditability(isEncrypted=true, canMarkup=true, canFillForms=true)	512
+LargeEncryptedTest	enc_AES_256_nopw_all	applyEdits->copy	68	25	14	14	11630	OK	pages=15	512
+LargeEncryptedTest	enc_AES_256_nopw_all	applyEdits->same URI	20	19	14	14	6175	Error	msg='Зашифрований документ можна зберегти лише як нову копію, а не поверх оригіналу' cause=IllegalArgumentException at PdfIo.enforcePolicy:69 < PdfBoxMarkupEngine$applyEdits$2.invokeSuspend:72	512
+LargeEncryptedTest	enc_AES_256_nopw_all	fillFormFields->copy	34	23	14	14	7382	OK	pages=15	512
+LargeEncryptedTest	enc_AES_256_nopw_all	extractFormFields(pw)	33	18	14	14	-1	OK	[Text(fullyQualifiedName=t_0, partialName=t_0, alternateTitle=null, isReadOnly=f	512
+LargeEncryptedTest	enc_AES_256_nopw_all	rotatePages	11	18	14	14	0	Error	msg='Помилка повороту сторінок: PDF contains an encryption dictionary, please remove it with setAllSecuri' cause=IllegalStateException at COSWriter.write:1368 < COSWriter.write:1320 < PDDocument.save:1366 < PdfBoxPageOperationsEngine$rotatePages$2.invokeSuspend:172	512
+LargeEncryptedTest	enc_AES_256_nopw_all	extractPages	51	19	14	14	4375	OK	pages=2	512
+LargeEncryptedTest	enc_AES_256_nopw_all	deletePages	13	18	14	14	0	Error	msg='Помилка видалення сторінок: PDF contains an encryption dictionary, please remove it with setAllSecur' cause=IllegalStateException at COSWriter.write:1368 < COSWriter.write:1320 < PDDocument.save:1366 < PdfBoxPageOperationsEngine$deletePages$2.invokeSuspend:224	512
+LargeEncryptedTest	enc_RC4_40_upw_restr	checkEditability(pw)	3	15	14	14	-1	OK	DocumentEditability(isEncrypted=true, canMarkup=false, canFillForms=false)	512
+LargeEncryptedTest	enc_RC4_40_upw_restr	checkEditability(no pw)	4	15	14	14	-1	null		512
+LargeEncryptedTest	enc_RC4_40_upw_restr	applyEdits(wrong pw)	10	16	14	14	-1	Error	msg='Невірний пароль для захищеного PDF-документа' cause=InvalidPasswordException at StandardSecurityHandler.prepareForDecryption:279 < COSParser.prepareDecryption:2985 < COSParser.retrieveTrailer:284 < PDFParser.initialParse:169	512
+LargeEncryptedTest	enc_RC4_40_upw_restr	fillFormFields(wrong pw)	5	15	14	14	-1	Error	msg='Невірний пароль для захищеного PDF-документа' cause=InvalidPasswordException at StandardSecurityHandler.prepareForDecryption:279 < COSParser.prepareDecryption:2985 < COSParser.retrieveTrailer:284 < PDFParser.initialParse:169	512
+LargeEncryptedTest	enc_RC4_40_upw_restr	extractFormFields(wrong pw)	4	15	14	14	-1	CRASH	InvalidPasswordException: Cannot decrypt PDF, the password is incorrect at StandardSecurityHandler.prepareForDecryption:279 < COSParser.prepareDecryption:2985 < COSParser.retrieveTrailer:284 < PDFParser.initialParse:169	512
+LargeEncryptedTest	enc_RC4_40_upw_restr	applyEdits->copy	7	16	14	14	-1	Error	msg='Права документа забороняють зміну' cause=PdfPermissionException at PdfIo.enforcePolicy:66 < PdfBoxMarkupEngine$applyEdits$2.invokeSuspend:72	512
+LargeEncryptedTest	enc_RC4_40_upw_restr	applyEdits->same URI	8	16	14	14	4389	Error	msg='Права документа забороняють зміну' cause=PdfPermissionException at PdfIo.enforcePolicy:66 < PdfBoxMarkupEngine$applyEdits$2.invokeSuspend:72	512
+LargeEncryptedTest	enc_RC4_40_upw_restr	fillFormFields->copy	5	15	14	14	-1	Error	msg='Права документа забороняють заповнення форм' cause=PdfPermissionException at PdfIo.enforcePolicy:67 < PdfBoxFormEngine$fillFormFields$2.invokeSuspend:122	512
+LargeEncryptedTest	enc_RC4_40_upw_restr	extractFormFields(pw)	4	15	14	14	-1	OK	[Text(fullyQualifiedName=t_0, partialName=t_0, alternateTitle=null, isReadOnly=f	512
+LargeEncryptedTest	enc_RC4_40_upw_restr	rotatePages	7	15	14	14	0	Error	msg='Помилка повороту сторінок: PDF contains an encryption dictionary, please remove it with setAllSecuri' cause=IllegalStateException at COSWriter.write:1368 < COSWriter.write:1320 < PDDocument.save:1366 < PdfBoxPageOperationsEngine$rotatePages$2.invokeSuspend:172	512
+LargeEncryptedTest	enc_RC4_40_upw_restr	extractPages	54	16	14	14	4375	OK	pages=2	512
+LargeEncryptedTest	enc_RC4_40_upw_restr	deletePages	9	15	14	14	0	Error	msg='Помилка видалення сторінок: PDF contains an encryption dictionary, please remove it with setAllSecur' cause=IllegalStateException at COSWriter.write:1368 < COSWriter.write:1320 < PDDocument.save:1366 < PdfBoxPageOperationsEngine$deletePages$2.invokeSuspend:224	512
+LargeEncryptedTest	enc_AES_128_nopw_all	checkEditability(pw)	4	15	14	14	-1	OK	DocumentEditability(isEncrypted=true, canMarkup=true, canFillForms=true)	512
+LargeEncryptedTest	enc_AES_128_nopw_all	applyEdits->copy	33	18	14	14	11382	OK	pages=15	512
+LargeEncryptedTest	enc_AES_128_nopw_all	applyEdits->same URI	7	16	14	14	5927	Error	msg='Зашифрований документ можна зберегти лише як нову копію, а не поверх оригіналу' cause=IllegalArgumentException at PdfIo.enforcePolicy:69 < PdfBoxMarkupEngine$applyEdits$2.invokeSuspend:72	512
+LargeEncryptedTest	enc_AES_128_nopw_all	fillFormFields->copy	26	16	14	14	7134	OK	pages=15	512
+LargeEncryptedTest	enc_AES_128_nopw_all	extractFormFields(pw)	4	15	14	14	-1	OK	[Text(fullyQualifiedName=t_0, partialName=t_0, alternateTitle=null, isReadOnly=f	512
+LargeEncryptedTest	enc_AES_128_nopw_all	rotatePages	8	15	14	14	0	Error	msg='Помилка повороту сторінок: PDF contains an encryption dictionary, please remove it with setAllSecuri' cause=IllegalStateException at COSWriter.write:1368 < COSWriter.write:1320 < PDDocument.save:1366 < PdfBoxPageOperationsEngine$rotatePages$2.invokeSuspend:172	512
+LargeEncryptedTest	enc_AES_128_nopw_all	extractPages	27	16	14	14	4375	OK	pages=2	512
+LargeEncryptedTest	enc_AES_128_nopw_all	deletePages	6	15	14	14	0	Error	msg='Помилка видалення сторінок: PDF contains an encryption dictionary, please remove it with setAllSecur' cause=IllegalStateException at COSWriter.write:1368 < COSWriter.write:1320 < PDDocument.save:1366 < PdfBoxPageOperationsEngine$deletePages$2.invokeSuspend:224	512
+LargeEncryptedTest	enc_AES_128_upw_all	checkEditability(pw)	4	15	14	14	-1	OK	DocumentEditability(isEncrypted=true, canMarkup=true, canFillForms=true)	512
+LargeEncryptedTest	enc_AES_128_upw_all	checkEditability(no pw)	3	15	14	14	-1	null		512
+LargeEncryptedTest	enc_AES_128_upw_all	applyEdits(wrong pw)	10	16	14	14	-1	Error	msg='Невірний пароль для захищеного PDF-документа' cause=InvalidPasswordException at StandardSecurityHandler.prepareForDecryption:279 < COSParser.prepareDecryption:2985 < COSParser.retrieveTrailer:284 < PDFParser.initialParse:169	512
+LargeEncryptedTest	enc_AES_128_upw_all	fillFormFields(wrong pw)	6	15	14	14	-1	Error	msg='Невірний пароль для захищеного PDF-документа' cause=InvalidPasswordException at StandardSecurityHandler.prepareForDecryption:279 < COSParser.prepareDecryption:2985 < COSParser.retrieveTrailer:284 < PDFParser.initialParse:169	512
+LargeEncryptedTest	enc_AES_128_upw_all	extractFormFields(wrong pw)	3	15	14	14	-1	CRASH	InvalidPasswordException: Cannot decrypt PDF, the password is incorrect at StandardSecurityHandler.prepareForDecryption:279 < COSParser.prepareDecryption:2985 < COSParser.retrieveTrailer:284 < PDFParser.initialParse:169	512
+LargeEncryptedTest	enc_AES_128_upw_all	applyEdits->copy	23	18	14	14	11382	OK	pages=15	512
+LargeEncryptedTest	enc_AES_128_upw_all	applyEdits->same URI	6	16	14	14	5927	Error	msg='Зашифрований документ можна зберегти лише як нову копію, а не поверх оригіналу' cause=IllegalArgumentException at PdfIo.enforcePolicy:69 < PdfBoxMarkupEngine$applyEdits$2.invokeSuspend:72	512
+LargeEncryptedTest	enc_AES_128_upw_all	fillFormFields->copy	19	16	14	14	7134	OK	pages=15	512
+LargeEncryptedTest	enc_AES_128_upw_all	extractFormFields(pw)	5	15	14	14	-1	OK	[Text(fullyQualifiedName=t_0, partialName=t_0, alternateTitle=null, isReadOnly=f	512
+LargeEncryptedTest	enc_AES_128_upw_all	rotatePages	6	15	14	14	0	Error	msg='Помилка повороту сторінок: PDF contains an encryption dictionary, please remove it with setAllSecuri' cause=IllegalStateException at COSWriter.write:1368 < COSWriter.write:1320 < PDDocument.save:1366 < PdfBoxPageOperationsEngine$rotatePages$2.invokeSuspend:172	512
+LargeEncryptedTest	enc_AES_128_upw_all	extractPages	63	16	14	14	4375	OK	pages=2	512
+LargeEncryptedTest	enc_AES_128_upw_all	deletePages	12	15	14	14	0	Error	msg='Помилка видалення сторінок: PDF contains an encryption dictionary, please remove it with setAllSecur' cause=IllegalStateException at COSWriter.write:1368 < COSWriter.write:1320 < PDDocument.save:1366 < PdfBoxPageOperationsEngine$deletePages$2.invokeSuspend:224	512
+LargeEncryptedTest	enc_AES_256_nopw_restr	checkEditability(pw)	11	18	14	14	-1	OK	DocumentEditability(isEncrypted=true, canMarkup=false, canFillForms=false)	512
+LargeEncryptedTest	enc_AES_256_nopw_restr	applyEdits->copy	51	19	14	14	-1	Error	msg='Права документа забороняють зміну' cause=PdfPermissionException at PdfIo.enforcePolicy:66 < PdfBoxMarkupEngine$applyEdits$2.invokeSuspend:72	512
+LargeEncryptedTest	enc_AES_256_nopw_restr	applyEdits->same URI	16	19	14	14	6177	Error	msg='Права документа забороняють зміну' cause=PdfPermissionException at PdfIo.enforcePolicy:66 < PdfBoxMarkupEngine$applyEdits$2.invokeSuspend:72	512
+LargeEncryptedTest	enc_AES_256_nopw_restr	fillFormFields->copy	12	18	14	14	-1	Error	msg='Права документа забороняють заповнення форм' cause=PdfPermissionException at PdfIo.enforcePolicy:67 < PdfBoxFormEngine$fillFormFields$2.invokeSuspend:122	512
+LargeEncryptedTest	enc_AES_256_nopw_restr	extractFormFields(pw)	10	18	14	14	-1	OK	[Text(fullyQualifiedName=t_0, partialName=t_0, alternateTitle=null, isReadOnly=f	512
+LargeEncryptedTest	enc_AES_256_nopw_restr	rotatePages	13	18	14	14	0	Error	msg='Помилка повороту сторінок: PDF contains an encryption dictionary, please remove it with setAllSecuri' cause=IllegalStateException at COSWriter.write:1368 < COSWriter.write:1320 < PDDocument.save:1366 < PdfBoxPageOperationsEngine$rotatePages$2.invokeSuspend:172	512
+LargeEncryptedTest	enc_AES_256_nopw_restr	extractPages	149	19	14	14	4375	OK	pages=2	512
+LargeEncryptedTest	enc_AES_256_nopw_restr	deletePages	82	18	14	14	0	Error	msg='Помилка видалення сторінок: PDF contains an encryption dictionary, please remove it with setAllSecur' cause=IllegalStateException at COSWriter.write:1368 < COSWriter.write:1320 < PDDocument.save:1366 < PdfBoxPageOperationsEngine$deletePages$2.invokeSuspend:224	512
+LargeEncryptedTest	enc_RC4_40_nopw_restr	checkEditability(pw)	6	15	14	14	-1	OK	DocumentEditability(isEncrypted=true, canMarkup=false, canFillForms=false)	512
+LargeEncryptedTest	enc_RC4_40_nopw_restr	applyEdits->copy	8	16	14	14	-1	Error	msg='Права документа забороняють зміну' cause=PdfPermissionException at PdfIo.enforcePolicy:66 < PdfBoxMarkupEngine$applyEdits$2.invokeSuspend:72	512
+LargeEncryptedTest	enc_RC4_40_nopw_restr	applyEdits->same URI	8	16	14	14	4391	Error	msg='Права документа забороняють зміну' cause=PdfPermissionException at PdfIo.enforcePolicy:66 < PdfBoxMarkupEngine$applyEdits$2.invokeSuspend:72	512
+LargeEncryptedTest	enc_RC4_40_nopw_restr	fillFormFields->copy	5	15	14	14	-1	Error	msg='Права документа забороняють заповнення форм' cause=PdfPermissionException at PdfIo.enforcePolicy:67 < PdfBoxFormEngine$fillFormFields$2.invokeSuspend:122	512
+LargeEncryptedTest	enc_RC4_40_nopw_restr	extractFormFields(pw)	3	15	14	14	-1	OK	[Text(fullyQualifiedName=t_0, partialName=t_0, alternateTitle=null, isReadOnly=f	512
+LargeEncryptedTest	enc_RC4_40_nopw_restr	rotatePages	8	15	14	14	0	Error	msg='Помилка повороту сторінок: PDF contains an encryption dictionary, please remove it with setAllSecuri' cause=IllegalStateException at COSWriter.write:1368 < COSWriter.write:1320 < PDDocument.save:1366 < PdfBoxPageOperationsEngine$rotatePages$2.invokeSuspend:172	512
+LargeEncryptedTest	enc_RC4_40_nopw_restr	extractPages	41	16	14	14	4375	OK	pages=2	512
+LargeEncryptedTest	enc_RC4_40_nopw_restr	deletePages	10	15	14	14	0	Error	msg='Помилка видалення сторінок: PDF contains an encryption dictionary, please remove it with setAllSecur' cause=IllegalStateException at COSWriter.write:1368 < COSWriter.write:1320 < PDDocument.save:1366 < PdfBoxPageOperationsEngine$deletePages$2.invokeSuspend:224	512
+LargeEncryptedTest	enc_AES_256_upw_restr	checkEditability(pw)	9	19	14	14	-1	OK	DocumentEditability(isEncrypted=true, canMarkup=false, canFillForms=false)	512
+LargeEncryptedTest	enc_AES_256_upw_restr	checkEditability(no pw)	7	17	14	14	-1	null		512
+LargeEncryptedTest	enc_AES_256_upw_restr	applyEdits(wrong pw)	10	18	14	14	-1	Error	msg='Невірний пароль для захищеного PDF-документа' cause=InvalidPasswordException at StandardSecurityHandler.prepareForDecryption:279 < COSParser.prepareDecryption:2985 < COSParser.retrieveTrailer:284 < PDFParser.initialParse:169	512
+LargeEncryptedTest	enc_AES_256_upw_restr	fillFormFields(wrong pw)	9	17	14	14	-1	Error	msg='Невірний пароль для захищеного PDF-документа' cause=InvalidPasswordException at StandardSecurityHandler.prepareForDecryption:279 < COSParser.prepareDecryption:2985 < COSParser.retrieveTrailer:284 < PDFParser.initialParse:169	512
+LargeEncryptedTest	enc_AES_256_upw_restr	extractFormFields(wrong pw)	8	17	14	14	-1	CRASH	InvalidPasswordException: Cannot decrypt PDF, the password is incorrect at StandardSecurityHandler.prepareForDecryption:279 < COSParser.prepareDecryption:2985 < COSParser.retrieveTrailer:284 < PDFParser.initialParse:169	512
+LargeEncryptedTest	enc_AES_256_upw_restr	applyEdits->copy	15	19	14	14	-1	Error	msg='Права документа забороняють зміну' cause=PdfPermissionException at PdfIo.enforcePolicy:66 < PdfBoxMarkupEngine$applyEdits$2.invokeSuspend:72	512
+LargeEncryptedTest	enc_AES_256_upw_restr	applyEdits->same URI	15	19	14	14	6177	Error	msg='Права документа забороняють зміну' cause=PdfPermissionException at PdfIo.enforcePolicy:66 < PdfBoxMarkupEngine$applyEdits$2.invokeSuspend:72	512
+LargeEncryptedTest	enc_AES_256_upw_restr	fillFormFields->copy	13	19	14	14	-1	Error	msg='Права документа забороняють заповнення форм' cause=PdfPermissionException at PdfIo.enforcePolicy:67 < PdfBoxFormEngine$fillFormFields$2.invokeSuspend:122	512
+LargeEncryptedTest	enc_AES_256_upw_restr	extractFormFields(pw)	18	19	14	14	-1	OK	[Text(fullyQualifiedName=t_0, partialName=t_0, alternateTitle=null, isReadOnly=f	512
+LargeEncryptedTest	enc_AES_256_upw_restr	rotatePages	19	19	14	14	0	Error	msg='Помилка повороту сторінок: PDF contains an encryption dictionary, please remove it with setAllSecuri' cause=IllegalStateException at COSWriter.write:1368 < COSWriter.write:1320 < PDDocument.save:1366 < PdfBoxPageOperationsEngine$rotatePages$2.invokeSuspend:172	512
+LargeEncryptedTest	enc_AES_256_upw_restr	extractPages	123	19	14	14	4375	OK	pages=2	512
+LargeEncryptedTest	enc_AES_256_upw_restr	deletePages	21	19	14	14	0	Error	msg='Помилка видалення сторінок: PDF contains an encryption dictionary, please remove it with setAllSecur' cause=IllegalStateException at COSWriter.write:1368 < COSWriter.write:1320 < PDDocument.save:1366 < PdfBoxPageOperationsEngine$deletePages$2.invokeSuspend:224	512
+LargeFormsTest	big60	fillFormFields[no AcroForm, 1 update]	354	143	10	10	-1	Error	msg='Документ не містить форми AcroForm для заповнення' cause=IllegalArgumentException at FormFiller.apply:151 < PdfBoxFormEngine$fillFormFields$2.invokeSuspend:124	512
+LargeFormsTest	big60	fillFormFields[no AcroForm, 0 updates]	328	146	11	11	62928098	OK	pages=30	512
+LargeFormsTest	forms600	fillFormFields[multiline t_0]	493	37	11	14	214190	OK	pages=20	512
+LargeFormsTest	forms600	fillFormFields[550 updates]	456	57	14	14	210673	OK	pages=20	512
+LargeFormsTest	forms600_out	extractFormFields	63	28	14	14	-1	OK	[Text(fullyQualifiedName=t_0, partialName=t_0, alternateTitle=null, isReadOnly=f	512
+LargeMarkupTest	big100	applyEdits[first p1]	887	223	10	11	104885569	OK	pages=50	512
+LargeMarkupTest	big100	applyEdits[middle p26]	526	217	11	11	104885569	OK	pages=50	512
+LargeMarkupTest	big100	applyEdits[last p50]	475	216	11	11	104885569	OK	pages=50	512
+LargeMarkupTest	big60	applyEdits[first p1]	316	135	11	11	62933588	OK	pages=30	512
+LargeMarkupTest	big60	applyEdits[middle p16]	300	135	11	11	62933588	OK	pages=30	512
+LargeMarkupTest	big60	applyEdits[last p30]	270	135	11	11	62933588	OK	pages=30	512
+LargeMarkupTest	fonts120	applyEdits[first p1]	118	22	11	11	652687	OK	pages=120	512
+LargeMarkupTest	fonts120	applyEdits[middle p61]	126	23	11	11	652687	OK	pages=120	512
+LargeMarkupTest	fonts120	applyEdits[last p120]	88	24	11	11	652687	OK	pages=120	512
+LargeMarkupTest	forms600+fields	applyEdits[first p1]	563	79	11	14	219999	OK	pages=20	512
+LargeMarkupTest	forms600+fields	applyEdits[middle p11]	295	37	14	14	219999	OK	pages=20	512
+LargeMarkupTest	forms600+fields	applyEdits[last p20]	204	36	14	14	219999	OK	pages=20	512
+LargeMarkupTest	deeptree256	applyEdits[first p1]	43	25	14	14	131664	OK	pages=256	512
+LargeMarkupTest	deeptree256	applyEdits[middle p129]	42	25	14	14	131664	OK	pages=256	512
+LargeMarkupTest	deeptree256	applyEdits[last p256]	40	25	14	14	131664	OK	pages=256	512
+LargeMarkupTest	pages520	applyEdits[first p1]	53	29	14	14	232578	OK	pages=520	512
+LargeMarkupTest	pages520	applyEdits[middle p261]	60	29	14	14	232578	OK	pages=520	512
+LargeMarkupTest	pages520	applyEdits[last p520]	63	29	14	14	232578	OK	pages=520	512
+LargeMarkupTest	pages2000	applyEdits[first p1]	96	49	14	14	973018	OK	pages=2000	512
+LargeMarkupTest	pages2000	applyEdits[middle p1001]	109	36	14	14	973018	OK	pages=2000	512
+LargeMarkupTest	pages2000	applyEdits[last p2000]	107	53	14	14	973018	OK	pages=2000	512
+LargeMarkupTest	rotcrop12	applyEdits[first p1]	35	17	14	14	11292	OK	pages=12	512
+LargeMarkupTest	rotcrop12	applyEdits[middle p7]	27	17	14	14	11285	OK	pages=12	512
+LargeMarkupTest	rotcrop12	applyEdits[last p12]	25	17	14	14	11298	OK	pages=12	512
+LargeOpenTest	big100	open+metadata	338	214	10	10	-1	OK	(pages=50, 50)	512
+LargeOpenTest	big100	checkEditability	354	214	10	11	-1	OK	DocumentEditability(isEncrypted=false, canMarkup=true, canFillForms=true)	512
+LargeOpenTest	big100	extractFormFields	281	213	11	11	-1	OK	[]	512
+LargeOpenTest	enc_big60_aes256	open+metadata	511	200	11	11	-1	OK	(pages=30, 30)	512
+LargeOpenTest	enc_big60_aes256	checkEditability	346	199	11	11	-1	OK	DocumentEditability(isEncrypted=true, canMarkup=true, canFillForms=true)	512
+LargeOpenTest	enc_big60_aes256	extractFormFields	347	198	11	11	-1	OK	[]	512
+LargeOpenTest	big60	open+metadata	162	133	11	11	-1	OK	(pages=30, 30)	512
+LargeOpenTest	big60	checkEditability	178	133	11	11	-1	OK	DocumentEditability(isEncrypted=false, canMarkup=true, canFillForms=true)	512
+LargeOpenTest	big60	extractFormFields	176	133	11	11	-1	OK	[]	512
+LargeOpenTest	fonts120	open+metadata	64	19	11	11	-1	OK	(pages=120, 120)	512
+LargeOpenTest	fonts120	checkEditability	48	19	11	11	-1	OK	DocumentEditability(isEncrypted=false, canMarkup=true, canFillForms=true)	512
+LargeOpenTest	fonts120	extractFormFields	31	19	11	11	-1	OK	[]	512
+LargeOpenTest	forms600	open+metadata	16	19	11	11	-1	OK	(pages=20, 20)	512
+LargeOpenTest	forms600	checkEditability	22	19	11	11	-1	OK	DocumentEditability(isEncrypted=false, canMarkup=true, canFillForms=true)	512
+LargeOpenTest	forms600	extractFormFields	271	30	11	14	-1	OK	[Text(fullyQualifiedName=t_0, partialName=t_0, alternateTitle=null, isReadOnly=f	512
+LargeOpenTest	deeptree256	open+metadata	33	20	14	14	-1	OK	(pages=256, 256)	512
+LargeOpenTest	deeptree256	checkEditability	12	20	14	14	-1	OK	DocumentEditability(isEncrypted=false, canMarkup=true, canFillForms=true)	512
+LargeOpenTest	deeptree256	extractFormFields	12	20	14	14	-1	OK	[]	512
+LargeOpenTest	pages520	open+metadata	55	22	14	14	-1	OK	(pages=520, 520)	512
+LargeOpenTest	pages520	checkEditability	13	23	14	14	-1	OK	DocumentEditability(isEncrypted=false, canMarkup=true, canFillForms=true)	512
+LargeOpenTest	pages520	extractFormFields	13	23	14	14	-1	OK	[]	512
+LargeOpenTest	pages2000	open+metadata	79	31	14	14	-1	OK	(pages=2000, 2000)	512
+LargeOpenTest	pages2000	checkEditability	50	30	14	14	-1	OK	DocumentEditability(isEncrypted=false, canMarkup=true, canFillForms=true)	512
+LargeOpenTest	pages2000	extractFormFields	107	36	14	14	-1	OK	[]	512
+LargeOpenTest	rotcrop12	open+metadata	3	14	14	14	-1	OK	(pages=12, 12)	512
+LargeOpenTest	rotcrop12	checkEditability	3	15	14	14	-1	OK	DocumentEditability(isEncrypted=false, canMarkup=true, canFillForms=true)	512
+LargeOpenTest	rotcrop12	extractFormFields	3	15	14	14	-1	OK	[]	512
+LargePageOpsTest	delete_big60_half	deletePages[15]	516	144	10	11	31464203	OK	pages=15	512
+LargePageOpsTest	merge_big60+big60(120MB)	mergePdfs	1220	348	11	11	125861768	OK	pages=60	512
+LargePageOpsTest	delete_deeptree256_100	deletePages[100]	247	20	11	11	86643	OK	pages=156	512
+LargePageOpsTest	images_20	imagesToPdf[20 jpeg A4@300dpi, 34 MB]	309	71	11	11	36544822	OK	pages=20	512
+LargePageOpsTest	images_60	imagesToPdf[60 jpeg A4@300dpi, 104 MB]	666	199	11	11	109634111	OK	pages=60	512
+LargePageOpsTest	images_1	imagesToPdf[1 jpeg A4@300dpi, 0 MB]	42	14	11	11	1012204	OK	pages=1	512
+LargePageOpsTest	reorder_pages520_reversed	extractPages[520]	586	45	11	11	252574	OK	pages=520	512
+LargePageOpsTest	split_forms600_p1	extractPages[1]	554	22	11	11	134927	OK	pages=1	512
+LargePageOpsTest	rotate_big100_p1	rotatePages[1]	599	217	11	11	104880078	OK	pages=50	512
+LargePageOpsTest	rotate_rotcrop_all	rotatePages[12]	63	12	11	11	5865	OK	pages=12	512
+LargePageOpsTest	delete_pages2000_keep1	deletePages[1999]	553	66	11	11	870	OK	pages=1	512
+LargePageOpsTest	delete_pages520_10	deletePages[10]	401	24	11	11	222670	OK	pages=510	512
+LargePageOpsTest	split_big100_all50	extractPages[50]	663	218	11	11	104883731	OK	pages=50	512
+LargePageOpsTest	merge_big60+big100(160MB)	mergePdfs	1097	400	11	11	167815628	OK	pages=80	512
+LargePageOpsTest	rotate_pages2000_all	rotatePages[2000]	1768	70	11	11	989520	OK	pages=2000	512
+LargePageOpsTest	merge_pages520+2000	mergePdfs	2547	84	11	11	1560122	OK	pages=2520	512
+LargePageOpsTest	split_pages2000_100	extractPages[100]	170	31	11	11	52905	OK	pages=100	512
+LargePageOpsTest	split_pages2000_all	extractPages[2000]	1925	81	11	11	1065534	OK	pages=2000	512
+LargePageOpsTest	split_big100_first5	extractPages[5]	334	228	11	11	10488651	OK	pages=5	512
+LargePageOpsTest	merge_forms600+rotcrop	mergePdfs	597	37	11	14	148664	OK	pages=32	512
+LargePageOpsTest	split_rotcrop_all	extractPages[12]	126	16	14	14	6071	OK	pages=12	512

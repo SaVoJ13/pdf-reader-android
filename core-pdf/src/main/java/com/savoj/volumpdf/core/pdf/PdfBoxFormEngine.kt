@@ -36,7 +36,7 @@ class PdfBoxFormEngine : FormEngine {
 
         val doc = PdfIo.loadDocument(context, sourceUri, password)
         try {
-            val acroForm = doc.documentCatalog.acroForm ?: return@withContext emptyList()
+            val acroForm = PdfIo.acroForm(doc) ?: return@withContext emptyList()
             val fieldsList = mutableListOf<FormField>()
 
             val iterator = try {
@@ -145,7 +145,7 @@ internal object FormFiller {
      * в /V (для списку ще /I) без побудови appearance шрифтом DA; відображення — через NeedAppearances.
      */
     fun apply(doc: PDDocument, updates: List<FormFieldUpdate>) {
-        val acroForm = doc.documentCatalog.acroForm
+        val acroForm = PdfIo.acroForm(doc)
         if (acroForm == null) {
             if (updates.isNotEmpty()) {
                 throw IllegalArgumentException("Документ не містить форми AcroForm для заповнення")
@@ -242,7 +242,7 @@ internal object FormFiller {
     private fun setValueTolerant(field: PDField, value: String, set: (String) -> Unit) {
         try {
             set(value)
-        } catch (e: IllegalArgumentException) {
+        } catch (e: RuntimeException) { // IllegalArgumentException (шрифт) і StringIndexOutOfBounds (багаторядкове поле, F1)
             if (field.valueAsString != value) throw e
         }
     }

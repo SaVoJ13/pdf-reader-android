@@ -9,6 +9,7 @@ import com.tom_roush.pdfbox.pdmodel.PDDocument
 import com.tom_roush.pdfbox.pdmodel.encryption.AccessPermission
 import com.tom_roush.pdfbox.pdmodel.encryption.InvalidPasswordException
 import com.tom_roush.pdfbox.pdmodel.encryption.StandardProtectionPolicy
+import com.tom_roush.pdfbox.pdmodel.interactive.form.PDAcroForm
 import java.io.File
 import java.io.FileInputStream
 import java.io.FileNotFoundException
@@ -33,6 +34,16 @@ internal object PdfIo {
         openInputStream(context, uri).use { stream ->
             if (password != null) PDDocument.load(stream, password) else PDDocument.load(stream)
         }
+
+    /**
+     * AcroForm документа. Стандартний `getAcroForm()` застосовує fixup, що перебудовує appearance полів при
+     * NeedAppearances=true, і падає на деяких (багатоядкових) полях; тоді читаємо форму без fixup (F1).
+     */
+    fun acroForm(doc: PDDocument): PDAcroForm? = try {
+        doc.documentCatalog.acroForm
+    } catch (_: RuntimeException) {
+        doc.documentCatalog.getAcroForm(null)
+    }
 
     /** Права поточного відкриття: пароль власника дає все. */
     fun editability(doc: PDDocument): DocumentEditability {
